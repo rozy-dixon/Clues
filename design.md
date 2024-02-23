@@ -5,13 +5,15 @@ related to source: https://lootbndt.itch.io/pnpgolf
 
 ## Setup
 [x] file structure *02-22-2024*
-[ ] tiled setup 
-[ ] 'clues' image recreation
-[ ] load scene
-[ ] baseline scene hand-offs
-[ ] font https://www.dafont.com/zx-spectrum.font
-[ ] rules pop-up config
-[ ] browser memory
+[x] tiled setup *02-22-2024*
+[x] 'clues' image recreation *02-22-2024*
+[x] load scene *02-22-2024*
+[x] baseline scene hand-offs *02-22-2024*
+[x] font https://www.dafont.com/zx-spectrum.font *02-22-2024*
+[x] rules pop-up config *02-23-2024*
+    - super({ key: 'rulesScene', active: true })
+    - https://labs.phaser.io/edit.html?src=src/scenes/ui%20scene%20es6.js&v=3.80.0
+[x] browser memory *02-22-2024*
 
 ## Familiarization
 [ ] triangle tile prefab
@@ -24,7 +26,7 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [ ] clues tile prefab
 [ ] randomly generated title screen
 [ ] authored level 0 (tutorial)
-[ ] tune 1
+[x] tune 1 *02-22-2024*
 [ ] seclection sound effect
 
 ## Playtest Goals (March 8, 2024)
@@ -39,6 +41,9 @@ related to source: https://lootbndt.itch.io/pnpgolf
 ## Final Goals (March 18, 2024)
 [ ] tune 3
 [ ] movement sound effect
+
+## Issues
+[ ] rules scene not taking bitmap text
 
 ## Rubric and notes
 ### INFRASTRUCTURE
@@ -62,3 +67,5 @@ related to source: https://lootbndt.itch.io/pnpgolf
 
 ## Notes
 tileset name: clues_tilesheet
+current beepbox url:
+https://www.beepbox.co/#9n31s7k0l00e03t1qa7g0fj07r1i0o432T7v1u33f10m6q011d08HYw004000030000h0I4E0T1v1ue0f0q023d08A1F4B3Q217cPe433E361a6287bT1v1ue7f10p7q0331d08A0F5B3Q0140Pea77E361b627638T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0b4h400000000h4g000000014h000000004h400000000p1FFE-4z8TRRMldldBBsDpm00bdWfNSVLh-9LjuzZg00

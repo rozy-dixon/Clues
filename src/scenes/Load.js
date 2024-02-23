@@ -16,8 +16,13 @@ class Load extends Phaser.Scene {
             loadingBar.destroy()
         })
 
+        // load tilemaps
         this.load.image('cluesTilesheetPNG', './assets/clues_tilesheet.png')
         this.load.tilemapTiledJSON('menuTilemapJSON', './assets/tilemaps/menuTilemap.json')
+        // load tunes
+        this.load.audio('tune1', './assets/audio/tune1.mp3')
+        // load font
+        this.load.bitmapFont('rozyPixelFont', './assets/fonts/rozyPixelFont.png', './assets/fonts/rozyPixelFont.xml')
     }
 
     create() {
