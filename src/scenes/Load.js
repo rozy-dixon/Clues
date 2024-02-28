@@ -23,14 +23,24 @@ class Load extends Phaser.Scene {
         this.load.audio('tune1', './assets/audio/tune1.mp3')
         // load font
         this.load.bitmapFont('rozyPixelFont', './assets/fonts/rozyPixelFont.png', './assets/fonts/rozyPixelFont.xml')
+        // load spritesheet
+        this.load.spritesheet('player', './assets/spritesheets/player.png', { frameWidth: 5, frameHeight: 5 })
     }
 
     create() {
-        console.log("-> LOAD SCENE :^)")    // making sure
+        console.log('%cLOAD SCENE :^)', "color: #cfd1af")   // making sure
+
+        // create player character animation
+        this.anims.create({
+            key: 'neutral',
+            frames: this.anims.generateFrameNames('player', { start: 0, end: 3 }),
+            frameRate: 2,
+            repeat: -1
+        })
 
         // check for local storage browser support
         // https://github.com/nathanaltice/Paddle-Parkour-P360 used as reference
-        window.localStorage ? console.log('Local storage supported') : console.log('Local storage not supported')
+        window.localStorage ? console.log('%cLocal storage supported by this cat! (^･･^=)~', "color: #91aa86") : console.log('%cLocal storage not supported by this cat ~(=^･･^)', "color: #c088ae")
 
         this.scene.start('titleScene')
     }

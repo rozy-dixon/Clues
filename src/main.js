@@ -1,6 +1,8 @@
 // name: Rosalind Dixon
 // title: Clues
-// technical creative tilt:
+// creative tilt:
+// - overlapping scenes? kinda coool
+// - made another font?
 
 'use strict'
 
@@ -22,7 +24,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, Rules ]
+    scene: [ Load, Title, Menu, Level0, Rules ]
 }
 
 const game = new Phaser.Game(config)
@@ -31,4 +33,4 @@ let centerX = game.config.width/2
 let centerY = game.config.height/2
 let w = game.config.width
 let h = game.config.height
-let cursors
+let cursors, keyRULES, keyCREDITS

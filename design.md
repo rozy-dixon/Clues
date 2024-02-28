@@ -16,15 +16,25 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [x] browser memory *02-22-2024*
 
 ## Familiarization
+**do i actually need to do the prefab thing here?**
 [ ] triangle tile prefab
+    - paddle parkour (gravity)
 [ ] checkered tile prefab
+    - slime world (tile collisions)
 [ ] dot tile prefab
     [ ] dot movement
+        - drip feed
     [ ] shift to accelerate
+        - drip feed
     [ ] space to split
+        - drip feed, paddle parkour (grouping)
 [ ] wavy tile prefab
+    - rocket patrol,  drip feed (destroy)
 [ ] clues tile prefab
 [ ] randomly generated title screen
+    - randomly generated makes sense, but the grouping
+    - waves on bottom, then checkers, then triangles
+    - triangles closest to the center, triangles and checkers on the ouskirts of each group
 [ ] authored level 0 (tutorial)
 [x] tune 1 *02-22-2024*
 [ ] seclection sound effect
@@ -42,8 +52,12 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [ ] tune 3
 [ ] movement sound effect
 
-## Issues
+## Office Hours and Discussion
 [ ] rules scene not taking bitmap text
+    [ ] why is rules coming first, and how can I make it come after load?
+[ ] font licensing
+[ ] why can i not make a stupid player prefab
+[ ] player going slightly off screen??
 
 ## Rubric and notes
 ### INFRASTRUCTURE

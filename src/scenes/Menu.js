@@ -4,7 +4,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        console.log("-> MENU SCENE :^)")    // making sure
+        console.log('%cMENU SCENE :^)', "color: #cfd1af")   // making sure
 
         // play my little tune
         this.tune = this.sound.add('tune1', { 
@@ -22,7 +22,11 @@ class Menu extends Phaser.Scene {
         const mapLayer = map.createLayer('Map', tileset, 0, 0)
         const questionLayer = map.createLayer('Question', tileset, 0, 0)
         const highlightLayer = map.createLayer('Highlight', tileset, 0, 0)
+    }
 
-        //this.scene.start('rulesScene')
+    update() {
+        if(cursors.right.isDown) {
+            this.scene.start('level0Scene')
+        }
     }
 }
