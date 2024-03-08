@@ -1,6 +1,6 @@
-class It extends Phaser.Scene {
+class You extends Phaser.Scene {
     constructor() {
-        super('itScene')
+        super('youScene')
     }
 
     init() {
@@ -11,7 +11,7 @@ class It extends Phaser.Scene {
     }
 
     create() {
-        console.log('%cIT SCENE :^)', "color: #cfd1af") // making sure
+        console.log('%cYOU SCENE :^)', "color: #cfd1af")    // making sure
 
         // set border color
         document.getElementsByTagName('canvas')[0].style.borderColor = '#000000'

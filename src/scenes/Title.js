@@ -6,6 +6,9 @@ class Title extends Phaser.Scene {
     create() {
         console.log('%cTITLE SCENE :^)', "color: #cfd1af")  // making sure
 
+        // set border color
+        document.getElementsByTagName('canvas')[0].style.borderColor = '#FFFFFF'
+
         // play my little tune
         this.tune = this.sound.add('tune1', { 
             mute: false,
@@ -25,16 +28,12 @@ class Title extends Phaser.Scene {
         this.add.bitmapText(centerX, 112, 'rozyPixelFont', 'UP FOR START', 8).setOrigin(0.5)
         this.add.bitmapText(centerX, 120, 'rozyPixelFont', 'R FOR RULES', 8).setOrigin(0.5)
         this.add.bitmapText(centerX, 128, 'rozyPixelFont', 'C FOR CREDITS', 8).setOrigin(0.5)
-        this.add.bitmapText(centerX, 136, 'rozyPixelFont', 'SHIFT AND F TO FORGET', 8).setOrigin(0.5)
     }
 
     update() {
         if(cursors.up.isDown) {
             this.tune.play()
             this.scene.start('menuScene')
-        }
-        if(cursors.shift.isDown && cursors.left.isDown) {
-            localStorage.clear()
         }
     }
 }

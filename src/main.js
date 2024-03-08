@@ -26,7 +26,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, What, Is, It, Rules ],
+    scene: [ Load, Title, Menu, What, IsIt, That, You, Are, Looking, For, Here, Rules, MysterySolved ],
 }
 
 const game = new Phaser.Game(config)
@@ -36,5 +36,5 @@ let centerX = game.config.width/2
 let centerY = game.config.height/2
 let w = game.config.width
 let h = game.config.height
-let cursors, keyCREDITS, keyEXIT, keyRULES
-let key1, key2, key3
+let cursors, keyCREDITS, keyEXIT, keyRULES, keyFORGET
+let key1, key2, key3, key4, key5, key6, key7, key8
