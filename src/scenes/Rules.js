@@ -13,8 +13,6 @@ class Rules extends Phaser.Scene {
     }
 
     update() {
-        if(Phaser.Input.Keyboard.JustDown(keyRULES)) {
-            console.log('RULES:')
-        }
+        if(Phaser.Input.Keyboard.JustDown(keyRULES)) { console.log('RULES:') }
     }
 }

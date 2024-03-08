@@ -6,28 +6,23 @@ class Menu extends Phaser.Scene {
     create() {
         console.log('%cMENU SCENE :^)', "color: #cfd1af")   // making sure
 
-        // play my little tune
-        this.tune = this.sound.add('tune1', { 
-            mute: false,
-            volume: 1,
-            rate: 1,
-            loop: true
-        })
-        //this.tune.play()
-
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
         map.createLayer('Background', tileset, 0, 0)
-        const frameLayer = map.createLayer('Frame', tileset, 0, 0)
-        const mapLayer = map.createLayer('Map', tileset, 0, 0)
-        const questionLayer = map.createLayer('Question', tileset, 0, 0)
-        const highlightLayer = map.createLayer('Highlight', tileset, 0, 0)
+        map.createLayer('Frame', tileset, 0, 0)
+        map.createLayer('Map', tileset, 0, 0)
+        map.createLayer('Question', tileset, 0, 0)
+        map.createLayer('Highlight', tileset, 0, 0)
+
+        // temporary navigation
+        key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE)
+        key2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO)
+        key3 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.THREE)
     }
 
     update() {
-        /* if(cursors.right.isDown) {
-            this.scene.start('whatScene')
-        } */
-        this.scene.start('isScene')
+        if(key1.isDown) { this.scene.start('whatScene') }
+        if(key2.isDown) { this.scene.start('isScene') }
+        if(key3.isDown) { this.scene.start('itScene') }
     }
 }

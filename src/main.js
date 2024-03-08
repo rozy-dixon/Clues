@@ -18,7 +18,7 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            //debug: true,
             gravity: {
                 x: 0,
                 y: 0
@@ -26,7 +26,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, What, Is, Rules ],
+    scene: [ Load, Title, Menu, What, Is, It, Rules ],
 }
 
 const game = new Phaser.Game(config)
@@ -36,4 +36,5 @@ let centerX = game.config.width/2
 let centerY = game.config.height/2
 let w = game.config.width
 let h = game.config.height
-let cursors, keyRULES, keyCREDITS
+let cursors, keyCREDITS, keyEXIT, keyRULES
+let key1, key2, key3

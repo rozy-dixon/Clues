@@ -50,6 +50,8 @@ class What extends Phaser.Scene {
         // collision config
         this.grounded = true
         this.jumpV = 0
+
+        keyEXIT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
     }
 
     update() {
@@ -77,10 +79,12 @@ class What extends Phaser.Scene {
             }
             if(Phaser.Input.Keyboard.JustUp(cursors.space) || this.jumpV <= -100 ) {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
-                this.sound.play('pew')
+                this.sound.play('jump')
                 this.jumpV = 0
                 this.cameras.main.shake(80, 0.005)
             }
         }
+
+        if(Phaser.Input.Keyboard.JustDown(keyEXIT)) { this.scene.start('menuScene') }
     }
 }

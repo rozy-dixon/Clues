@@ -6,6 +6,14 @@ class Title extends Phaser.Scene {
     create() {
         console.log('%cTITLE SCENE :^)', "color: #cfd1af")  // making sure
 
+        // play my little tune
+        this.tune = this.sound.add('tune1', { 
+            mute: false,
+            volume: 1,
+            rate: 1,
+            loop: true
+        })
+
         // set background
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
@@ -21,12 +29,12 @@ class Title extends Phaser.Scene {
     }
 
     update() {
-        /* if(cursors.up.isDown) {
+        if(cursors.up.isDown) {
+            this.tune.play()
             this.scene.start('menuScene')
         }
         if(cursors.shift.isDown && cursors.left.isDown) {
             localStorage.clear()
-        } */
-        this.scene.start('menuScene')
+        }
     }
 }
