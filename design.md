@@ -1,4 +1,8 @@
-# Design and To-Do
+# Design
+Platformer-esque game-like thing, collecting letters across maps, finding the word, level complete.
+*What is it that you are looking for?*
+
+# To-Do and Reference
 living design doc: https://docs.google.com/document/d/1L96RvfJ76lwCKamRVTSOhkrxuKnlo6P4RsxwS-RaKzw/edit#heading=h.e905tppnwuaj\
 source image: https://twitter.com/LootBndt/status/1757167754895892501\
 related to source: https://lootbndt.itch.io/pnpgolf
@@ -19,40 +23,54 @@ related to source: https://lootbndt.itch.io/pnpgolf
 **pinball, tilting the cabinet**\
 **platformer**\
 **pool?**\
-[x] player controls *03-01-2024*\
+[x] player controls (what) *03-01-2024*\
     [x] tilt\
+    [x] camera rotation\
     [x] jump\
+[x] player controls (is) *03-07-2024*\
+    [ ] camera movement\
 [x] checkered tile *03-03-2024*\
 [x] wavy tile *03-03-2024*\
-    [ ] gravity well\
-[ ] tiny dot tile\
-[ ] authored level 0 (tutorial)\
-[ ] level 1\
-[x] tune 1 *02-22-2024*\
-[ ] selection sound effect\
+    [x] death (temp)\
+[x] tiny dot tile *03-07-2024*\
+[ ] level what\
+[ ] level is\
+[ ] menu select functionality\
+[x] tune 1 (temp) *02-22-2024*\
+[x] jump sfx (temp) *03-07-2024*\
+[x] respawn sfx (temp) *03-07-2024*\
+[x] selection sfx (temp) *03-07-2024*\
 [ ] jump emitter
 
-## Playtest Goals (March 12, 2024)
-[x] camera tilt *05-07-2024*\
-[ ] menu select functionality\
+## Playtest Goals (*WEDNESDAY*, March 14, 2024)
+[ ] full death\
 [ ] triangle tile\
-[ ] level 2\
-[ ] level 3\
-[ ] ~~level 4~~\
-[ ] ~~level 5~~\
+[ ] level it\
+[ ] level that\
+[ ] level you\
+[ ] level are\
 [ ] moving checkered tiles\
 [ ] particle effects\
 [ ] screen shake\
 [ ] fix font
 
+### Playtest rubric
+- Basic Scene structure: You have defined Scenes (yes, plural) and some means to switch between them (e.g., via in-game actions, temporary key presses, etc.).  (1 point)
+- Player interaction: The player can interact with the game. You should have at least one primary mechanic operational. If you make a platformer, perhaps movement and jumping are implemented. If you make a narrative game, perhaps the dialog boxes are implemented. If you're making a hidden object game, perhaps the basic point/click verbs are implemented. Primary mechanics will vary from game to game. (1 point)
+- Temporary visual assets: What good are core loops and interactions if there is nothing to look at? These should be assets in place, even if they are geometric primitives, quick doodles, or magazine cutouts. (1 point)
+- Temporary sound assets: Don't leave decisions about sound until the end of the design process. Sound is integral to making a game feel "real." Make sure your game makes some noise. (1 point)
+- Code organization and hygiene: Be sure you're using good software engineering practices, including version control (git/GitHub), code commenting, code encapsulation (Scenes, prefabs, etc.), and other quality-of-life features (e.g., indenting, logical variable names, etc.). It doesn't have to be perfect, but a grader should be able to look at your GitHub repository and understand how your code is structured and how it works. (1 point)
+Playtest attendance: Show up for our in-class playtest sessions and have your build ready on your assigned day. (2 points)
+
 ## Final Goals (March 18, 2024)
+[ ] tutorial level\
 [ ] win screen\
 [ ] lose screen\
 [ ] tile edits\
 [ ] player shake\
-[ ] level 6\
-[ ] level 7\
-[ ] level 8
+[ ] level searching\
+[ ] level for\
+[ ] level ?
 
 ## Stretch
 [ ] randomly generated title screen\

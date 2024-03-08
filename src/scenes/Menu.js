@@ -26,8 +26,8 @@ class Menu extends Phaser.Scene {
 
     update() {
         /* if(cursors.right.isDown) {
-            this.scene.start('level0Scene')
+            this.scene.start('whatScene')
         } */
-        this.scene.start('level0Scene')
+        this.scene.start('isScene')
     }
 }

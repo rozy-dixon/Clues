@@ -1,6 +1,6 @@
-class Level0 extends Phaser.Scene {
+class What extends Phaser.Scene {
     constructor() {
-        super('level0Scene')
+        super('whatScene')
     }
 
     init() {
@@ -11,7 +11,7 @@ class Level0 extends Phaser.Scene {
     }
 
     create() {
-        console.log('%cLEVEL 1 SCENE :^)', "color: #cfd1af")    // making sure
+        console.log('%cWHAT SCENE :^)', "color: #cfd1af")   // making sure
 
         // set border color
         document.getElementsByTagName('canvas')[0].style.borderColor = '#000000'
@@ -27,10 +27,9 @@ class Level0 extends Phaser.Scene {
         frameLayer.setCollisionByProperty({ collidable: true })
         const checkeredLayer = map.createLayer('TutorialCheckers', cluesTileset, 0, 0)
         checkeredLayer.setCollisionByProperty({ collidable: true })
-        const waveLayer = map.createLayer('TutorialWaves', cluesTileset, 0, 0)
-        waveLayer.setCollisionByProperty({ collidable: true })
-        const dotLayer = map.createLayer('TutorialDots', levelTileset, 0, 0)
-        dotLayer.setCollisionByProperty({ collidable: true })
+        this.waveLayer = map.createLayer('TutorialWaves', cluesTileset, 0, 0)
+        this.waveLayer.setCollisionByProperty({ collidable: true })
+        map.createLayer('TutorialDots', levelTileset, 0, 0)
 
         // player
         this.player = new Player(this, 112, 352)
@@ -38,8 +37,15 @@ class Level0 extends Phaser.Scene {
         // colliders
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
-        this.physics.add.collider(this.player, waveLayer)
-        //this.physics.add.collider(this.player, dotLayer)
+        this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
+            // [ ] play death animation
+            // send back to the start
+            player.x = 112
+            player.y = 352
+            // play respawn sound
+            this.sound.play('respawn')
+            player.setVelocity(0)
+        }, null, this)
 
         // collision config
         this.grounded = true
@@ -58,7 +64,7 @@ class Level0 extends Phaser.Scene {
         if(cursors.right.isDown && this.cameras.main.rotation < 0) { this.cameras.main.rotation += 0.005 }
         if(!cursors.left.isDown && !cursors.right.isDown && this.cameras.main.rotation > 0) { this.cameras.main.rotation -= 0.001 }
         if(!cursors.left.isDown && !cursors.right.isDown && this.cameras.main.rotation < 0) { this.cameras.main.rotation += 0.001 }
-        // [ ] tweens? 
+        // [ ] tweens?
 
         // power up jump
         this.grounded = this.player.body.touching.down || this.player.body.blocked.down
@@ -71,6 +77,7 @@ class Level0 extends Phaser.Scene {
             }
             if(Phaser.Input.Keyboard.JustUp(cursors.space) || this.jumpV <= -100 ) {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
+                this.sound.play('pew')
                 this.jumpV = 0
                 this.cameras.main.shake(80, 0.005)
             }

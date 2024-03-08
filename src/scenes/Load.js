@@ -22,6 +22,10 @@ class Load extends Phaser.Scene {
         this.load.tilemapTiledJSON('menuTilemapJSON', './assets/tilemaps/menuTilemap.json')
         // load tunes
         this.load.audio('tune1', './assets/audio/tune1.mp3')
+        // load sfx
+        this.load.audio('select', './assets/audio/select.wav')
+        this.load.audio('jump', './assets/audio/jump.wav')
+        this.load.audio('respawn', './assets/audio/respawn.wav')
         // load font
         this.load.bitmapFont('rozyPixelFont', './assets/fonts/rozyPixelFont.png', './assets/fonts/rozyPixelFont.xml')
         // load spritesheets and images
