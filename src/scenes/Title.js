@@ -21,11 +21,12 @@ class Title extends Phaser.Scene {
     }
 
     update() {
-        if(cursors.up.isDown) {
+        /* if(cursors.up.isDown) {
             this.scene.start('menuScene')
         }
         if(cursors.shift.isDown && cursors.left.isDown) {
             localStorage.clear()
-        }
+        } */
+        this.scene.start('menuScene')
     }
 }

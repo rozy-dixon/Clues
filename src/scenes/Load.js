@@ -18,12 +18,13 @@ class Load extends Phaser.Scene {
 
         // load tilemaps
         this.load.image('cluesTilesheetPNG', './assets/clues_tilesheet.png')
+        this.load.image('levelTilesheetPNG', './assets/level_tilesheet.png')
         this.load.tilemapTiledJSON('menuTilemapJSON', './assets/tilemaps/menuTilemap.json')
         // load tunes
         this.load.audio('tune1', './assets/audio/tune1.mp3')
         // load font
         this.load.bitmapFont('rozyPixelFont', './assets/fonts/rozyPixelFont.png', './assets/fonts/rozyPixelFont.xml')
-        // load spritesheet
+        // load spritesheets and images
         this.load.spritesheet('player', './assets/spritesheets/player.png', { frameWidth: 5, frameHeight: 5 })
     }
 
@@ -32,9 +33,9 @@ class Load extends Phaser.Scene {
 
         // create player character animation
         this.anims.create({
-            key: 'neutral',
+            key: 'jump',
             frames: this.anims.generateFrameNames('player', { start: 0, end: 3 }),
-            frameRate: 2,
+            frameRate: 5,
             repeat: -1
         })
 

@@ -1,8 +1,6 @@
 // name: Rosalind Dixon
 // title: Clues
 // creative tilt:
-// - overlapping scenes? kinda coool
-// - made another font?
 
 'use strict'
 
@@ -20,14 +18,19 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            //debug: true
+            debug: true,
+            gravity: {
+                x: 0,
+                y: 0
+            }
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, Level0, Rules ]
+    scene: [ Load, Title, Menu, Level0, Rules ],
 }
 
 const game = new Phaser.Game(config)
+const tileSize = 8
 
 let centerX = game.config.width/2
 let centerY = game.config.height/2

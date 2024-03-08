@@ -13,7 +13,7 @@ class Menu extends Phaser.Scene {
             rate: 1,
             loop: true
         })
-        this.tune.play()
+        //this.tune.play()
 
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
@@ -25,8 +25,9 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
-        if(cursors.right.isDown) {
+        /* if(cursors.right.isDown) {
             this.scene.start('level0Scene')
-        }
+        } */
+        this.scene.start('level0Scene')
     }
 }

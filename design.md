@@ -1,63 +1,74 @@
 # Design and To-Do
-living design doc: https://docs.google.com/document/d/1L96RvfJ76lwCKamRVTSOhkrxuKnlo6P4RsxwS-RaKzw/edit#heading=h.e905tppnwuaj
-source image: https://twitter.com/LootBndt/status/1757167754895892501
+living design doc: https://docs.google.com/document/d/1L96RvfJ76lwCKamRVTSOhkrxuKnlo6P4RsxwS-RaKzw/edit#heading=h.e905tppnwuaj\
+source image: https://twitter.com/LootBndt/status/1757167754895892501\
 related to source: https://lootbndt.itch.io/pnpgolf
 
 ## Setup
-[x] file structure *02-22-2024*
-[x] tiled setup *02-22-2024*
-[x] 'clues' image recreation *02-22-2024*
-[x] load scene *02-22-2024*
-[x] baseline scene hand-offs *02-22-2024*
-[x] font https://www.dafont.com/zx-spectrum.font *02-22-2024*
-[x] rules pop-up config *02-23-2024*
-    - super({ key: 'rulesScene', active: true })
-    - https://labs.phaser.io/edit.html?src=src/scenes/ui%20scene%20es6.js&v=3.80.0
+[x] file structure *02-22-2024*\
+[x] tiled setup *02-22-2024*\
+[x] 'clues' image recreation *02-22-2024*\
+[x] load scene *02-22-2024*\
+[x] baseline scene hand-offs *02-22-2024*\
+[x] font https://www.dafont.com/zx-spectrum.font *02-22-2024*\
+[x] rules pop-up config *02-23-2024*\
+    - super({ key: 'rulesScene', active: true })\
+    - https://labs.phaser.io/edit.html?src=src/scenes/ui%20scene%20es6.js&v=3.80.0\
 [x] browser memory *02-22-2024*
 
-## Familiarization
-**do i actually need to do the prefab thing here?**
-[ ] triangle tile prefab
-    - paddle parkour (gravity)
-[ ] checkered tile prefab
-    - slime world (tile collisions)
-[ ] dot tile prefab
-    [ ] dot movement
-        - drip feed
-    [ ] shift to accelerate
-        - drip feed
-    [ ] space to split
-        - drip feed, paddle parkour (grouping)
-[ ] wavy tile prefab
-    - rocket patrol,  drip feed (destroy)
-[ ] clues tile prefab
-[ ] randomly generated title screen
-    - randomly generated makes sense, but the grouping
-    - waves on bottom, then checkers, then triangles
-    - triangles closest to the center, triangles and checkers on the ouskirts of each group
-[ ] authored level 0 (tutorial)
-[x] tune 1 *02-22-2024*
-[ ] seclection sound effect
+## Familiarization (March 8, 2024)
+**pinball, tilting the cabinet**\
+**platformer**\
+**pool?**\
+[x] player controls *03-01-2024*\
+    [x] tilt\
+    [x] jump\
+[x] checkered tile *03-03-2024*\
+[x] wavy tile *03-03-2024*\
+    [ ] gravity well\
+[ ] tiny dot tile\
+[ ] authored level 0 (tutorial)\
+[ ] level 1\
+[x] tune 1 *02-22-2024*\
+[ ] selection sound effect\
+[ ] jump emitter
 
-## Playtest Goals (March 8, 2024)
-[ ] tune 2
-[ ] procedurally generated level 1
-[ ] procedurally generated level 2
-[ ] procedurally generated level 3
-[ ] authored level 4
-[ ] moving checkered tiles
-[ ] shooting tile
+## Playtest Goals (March 12, 2024)
+[x] camera tilt *05-07-2024*\
+[ ] menu select functionality\
+[ ] triangle tile\
+[ ] level 2\
+[ ] level 3\
+[ ] ~~level 4~~\
+[ ] ~~level 5~~\
+[ ] moving checkered tiles\
+[ ] particle effects\
+[ ] screen shake\
+[ ] fix font
 
 ## Final Goals (March 18, 2024)
-[ ] tune 3
-[ ] movement sound effect
+[ ] win screen\
+[ ] lose screen\
+[ ] tile edits\
+[ ] player shake\
+[ ] level 6\
+[ ] level 7\
+[ ] level 8
+
+## Stretch
+[ ] randomly generated title screen\
+    - randomly generated makes sense, but the grouping\
+    - waves on bottom, then checkers, then triangles\
+    - triangles closest to the center, triangles and checkers on the ouskirts of each group
 
 ## Office Hours and Discussion
-[ ] rules scene not taking bitmap text
-    [ ] why is rules coming first, and how can I make it come after load?
-[ ] font licensing
-[ ] why can i not make a stupid player prefab
-[ ] player going slightly off screen??
+[ ] rules scene not taking bitmap text\
+    [ ] why is rules coming first, and how can I make it come after load?\
+        - load order?\
+[x] font licensing\
+    - should be fine\
+[ ] why can i not make a stupid player prefab\
+[ ] player going slightly off screen??\
+[ ] do i need both the tmx and the json? exporting json affects the game, tmx does not?
 
 ## Rubric and notes
 ### INFRASTRUCTURE
