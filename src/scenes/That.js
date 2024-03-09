@@ -24,30 +24,15 @@ class That extends Phaser.Scene {
         const map = this.add.tilemap('menuTilemapJSON')
         const cluesTileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
         const levelTileset = map.addTilesetImage('level_tilesheet', 'levelTilesheetPNG')
-        map.createLayer('TutorialBackground', levelTileset, 0, 0)
-        const frameLayer = map.createLayer('TutorialFrame', cluesTileset, 0, 0)
+        map.createLayer('ThatBackground', levelTileset, 0, 0)
+        const frameLayer = map.createLayer('ThatFrame', cluesTileset, 0, 0)
         frameLayer.setCollisionByProperty({ collidable: true })
-        const checkeredLayer = map.createLayer('TutorialCheckers', cluesTileset, 0, 0)
-        checkeredLayer.setCollisionByProperty({ collidable: true })
-        this.waveLayer = map.createLayer('TutorialWaves', cluesTileset, 0, 0)
-        this.waveLayer.setCollisionByProperty({ collidable: true })
-        map.createLayer('TutorialDots', levelTileset, 0, 0)
 
         // player
         this.player = new Player(this, 112, 352)
         
         // colliders
         this.physics.add.collider(this.player, frameLayer)
-        this.physics.add.collider(this.player, checkeredLayer)
-        this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
-            // [ ] play death animation
-            // send back to the start
-            player.x = 112
-            player.y = 352
-            // play respawn sound
-            this.sound.play('respawn')
-            player.setVelocity(0)
-        }, null, this)
 
         // collision config
         this.grounded = true

@@ -9,6 +9,7 @@ class Menu extends Phaser.Scene {
         // set border color
         document.getElementsByTagName('canvas')[0].style.borderColor = '#FFFFFF'
 
+        // tile config
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
         map.createLayer('Background', tileset, 0, 0)
@@ -26,6 +27,8 @@ class Menu extends Phaser.Scene {
         key6 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SIX)
         key7 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SEVEN)
         key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
+        key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
+        keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
     }
 
     update() {
@@ -37,5 +40,6 @@ class Menu extends Phaser.Scene {
         if(key6.isDown) { this.scene.start('lookingScene') }
         if(key7.isDown) { this.scene.start('forScene') }
         if(key8.isDown) { this.scene.start('hereScene') }
+        if(Phaser.Input.Keyboard.JustDown(keyFORGET)) { this.scene.start('mysterySolvedScene')}
     }
 }
