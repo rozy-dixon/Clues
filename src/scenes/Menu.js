@@ -29,6 +29,11 @@ class Menu extends Phaser.Scene {
         key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
         key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
+
+        // temp menu control
+        this.add.rectangle(centerX, centerY, 168, 64, 0xFFFFFF).setOrigin(0.5)
+
+        this.add.bitmapText(centerX, centerY+8, 'rozyPixelFont', '1 TO PLAY', 8).setOrigin(0.5)
     }
 
     update() {
