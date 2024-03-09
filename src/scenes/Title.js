@@ -24,10 +24,10 @@ class Title extends Phaser.Scene {
         map.createLayer('Frame', tileset, 0, 0)
 
         // title and 
-        this.add.bitmapText(centerX, 80, 'rozyPixelFont', 'CLUES', 8).setOrigin(0.5)
-        this.add.bitmapText(centerX, 112, 'rozyPixelFont', 'UP FOR START', 8).setOrigin(0.5)
-        this.add.bitmapText(centerX, 120, 'rozyPixelFont', 'R FOR RULES', 8).setOrigin(0.5)
-        this.add.bitmapText(centerX, 128, 'rozyPixelFont', 'C FOR CREDITS', 8).setOrigin(0.5)
+        this.add.bitmapText(centerX, 80, 'ZXSpectrum', 'CLUES', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, 112, 'ZXSpectrum', 'UP FOR START', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, 120, 'ZXSpectrum', 'R FOR RULES', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, 128, 'ZXSpectrum', 'C FOR CREDITS', 7).setOrigin(0.5)
     }
 
     update() {

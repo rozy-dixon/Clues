@@ -23,18 +23,17 @@ related to source: https://lootbndt.itch.io/pnpgolf
 **pinball, tilting the cabinet**\
 **platformer**\
 **pool?**\
-[x] player controls (what) *03-01-2024*\
+[x] player controls *03-01-2024*\
     [x] tilt\
     [x] camera rotation\
     [x] jump\
-[x] player controls (is) *03-07-2024*\
-    [ ] camera movement\
 [x] checkered tile *03-03-2024*\
 [x] wavy tile *03-03-2024*\
     [x] death (temp)\
 [x] tiny dot tile *03-07-2024*\
 [ ] level what\
-[ ] level is\
+    [ ] letter display and collisions
+[ ] level isit\
 [ ] menu select functionality\
 [x] tune 1 (temp) *02-22-2024*\
 [x] jump sfx (temp) *03-07-2024*\
@@ -42,10 +41,13 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [x] selection sfx (temp) *03-07-2024*\
 [ ] jump emitter
 
-## Playtest Goals (*WEDNESDAY*, March 14, 2024)
+## Playtest Goals (**WEDNESDAY**, March 14, 2024)
+[x] tune 1 (full) *03-09-2024* (json files can be imported into beepbox)\
+[x] tune 2 *03-09-2024* (json files can be imported into beepbox)\
+[ ] rules display\
+    - because of the load order, image, not text
 [ ] full death\
 [ ] triangle tile\
-[ ] level it\
 [ ] level that\
 [ ] level you\
 [ ] level are\
@@ -60,28 +62,26 @@ related to source: https://lootbndt.itch.io/pnpgolf
 - Temporary visual assets: What good are core loops and interactions if there is nothing to look at? These should be assets in place, even if they are geometric primitives, quick doodles, or magazine cutouts. (1 point)
 - Temporary sound assets: Don't leave decisions about sound until the end of the design process. Sound is integral to making a game feel "real." Make sure your game makes some noise. (1 point)
 - Code organization and hygiene: Be sure you're using good software engineering practices, including version control (git/GitHub), code commenting, code encapsulation (Scenes, prefabs, etc.), and other quality-of-life features (e.g., indenting, logical variable names, etc.). It doesn't have to be perfect, but a grader should be able to look at your GitHub repository and understand how your code is structured and how it works. (1 point)
-Playtest attendance: Show up for our in-class playtest sessions and have your build ready on your assigned day. (2 points)
+- Playtest attendance: Show up for our in-class playtest sessions and have your build ready on your assigned day. (2 points)
 
 ## Final Goals (March 18, 2024)
-[ ] tutorial level\
-[ ] win screen\
-[ ] lose screen\
+[ ] slect sfx\
+[ ] menu sfx\
+[ ] mystery solved\
 [ ] tile edits\
 [ ] player shake\
-[ ] level searching\
+[ ] level looking\
 [ ] level for\
-[ ] level ?
+[ ] level here
 
 ## Stretch
 [ ] randomly generated title screen\
     - randomly generated makes sense, but the grouping\
     - waves on bottom, then checkers, then triangles\
     - triangles closest to the center, triangles and checkers on the ouskirts of each group
+[ ] letter prefab
 
 ## Office Hours and Discussion
-[ ] rules scene not taking bitmap text\
-    [ ] why is rules coming first, and how can I make it come after load?\
-        - load order?\
 [x] font licensing\
     - should be fine\
 [ ] why can i not make a stupid player prefab\

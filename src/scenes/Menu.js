@@ -31,9 +31,9 @@ class Menu extends Phaser.Scene {
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
 
         // temp menu control
-        this.add.rectangle(centerX, centerY, 168, 64, 0xFFFFFF).setOrigin(0.5)
+        this.add.rectangle(centerX, centerY, 168, 64, 0x000000).setOrigin(0.5)
 
-        this.add.bitmapText(centerX, centerY+8, 'rozyPixelFont', '1 TO PLAY', 8).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', '1-8 TO PLAY', 7).setOrigin(0.5)
     }
 
     update() {

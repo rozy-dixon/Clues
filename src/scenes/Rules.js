@@ -13,6 +13,7 @@ class Rules extends Phaser.Scene {
     }
 
     update() {
+        // press R to close rules, press E to exit to menu, press C for credits
         if(Phaser.Input.Keyboard.JustDown(keyRULES)) { console.log('RULES:') }
     }
 }
