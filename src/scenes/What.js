@@ -22,6 +22,7 @@ class What extends Phaser.Scene {
         const map = this.add.tilemap('menuTilemapJSON')
         const cluesTileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
         const levelTileset = map.addTilesetImage('level_tilesheet', 'levelTilesheetPNG')
+        // tilemaps
         map.createLayer('TutorialBackground', levelTileset, 0, 0)
         const frameLayer = map.createLayer('TutorialFrame', cluesTileset, 0, 0)
         frameLayer.setCollisionByProperty({ collidable: true })
@@ -134,7 +135,6 @@ class What extends Phaser.Scene {
             this.add.bitmapText(27*8, 3*8, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
             this.clue.body.onOverlap = true
             this.clue.body.setAllowGravity(false)
-            this.collectClue = false
         }
         if(this.physics.overlap(this.player, this.clue)) {
             this.scene.start('menuScene')

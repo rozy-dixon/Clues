@@ -31,8 +31,8 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [x] wavy tile *03-03-2024*\
     [x] death (temp)\
 [x] tiny dot tile *03-07-2024*\
-[ ] level what\
-    [ ] letter display and collisions
+[x] level what *03-09-2024*\
+    [x] letter display and collisions\
 [ ] level isit\
 [ ] menu select functionality\
 [x] tune 1 (temp) *02-22-2024*\
