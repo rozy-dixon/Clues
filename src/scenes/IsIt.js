@@ -92,6 +92,8 @@ class IsIt extends Phaser.Scene {
         this.jumpV = 0
 
         keyEXIT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
+
+        this.circle = this.add.circle(centerX, centerY, 0)
     }
 
     update() {
@@ -122,12 +124,18 @@ class IsIt extends Phaser.Scene {
         this.grounded = this.player.body.touching.down || this.player.body.blocked.down
         if(this.grounded) {
             this.player.anims.play('jump')
+            if(Phaser.Input.Keyboard.JustDown(cursors.space)) {
+                this.circle.setPosition(this.player.x, this.player.y)
+                this.circle.setStrokeStyle(2, 0xFF0000, 1)
+            }
             if(cursors.space.isDown) { 
                 this.jumpV--
+                this.circle.setRadius(this.jumpV/3)
                 // [ ] player shake
                 // [ ] particle emit
             }
             if(Phaser.Input.Keyboard.JustUp(cursors.space) || this.jumpV <= -100 ) {
+                this.circle.setStrokeStyle(2, 0xFF0000, 0)
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0

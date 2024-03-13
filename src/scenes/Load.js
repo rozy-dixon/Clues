@@ -44,6 +44,12 @@ class Load extends Phaser.Scene {
             frameRate: 5,
             repeat: -1
         })
+        this.anims.create({
+            key: 'buzz',
+            frames: this.anims.generateFrameNames('player', { start: 0, end: 3 }),
+            frameRate: 15,
+            repeat: 5
+        })
 
         // check for local storage browser support
         // https://github.com/nathanaltice/Paddle-Parkour-P360 used as reference

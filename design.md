@@ -1,6 +1,6 @@
 # Design
-Platformer-esque game-like thing, collecting letters across maps, finding the word, level complete.
-*What is it that you are looking for here?*
+Platformer-esque game-like thing, collecting letters across maps, finding the word, level complete.\
+[What] [is it] [you] [are] [looking] [for] [here?]
 
 # To-Do and Reference
 living design doc: https://docs.google.com/document/d/1L96RvfJ76lwCKamRVTSOhkrxuKnlo6P4RsxwS-RaKzw/edit#heading=h.e905tppnwuaj\

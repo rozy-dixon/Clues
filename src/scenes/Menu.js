@@ -33,7 +33,7 @@ class Menu extends Phaser.Scene {
         // temp menu control
         this.add.rectangle(centerX, centerY, 168, 64, 0x000000).setOrigin(0.5)
 
-        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', '1-8 TO PLAY', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', '1 OR 2 TO PLAY', 7).setOrigin(0.5)
     }
 
     update() {
