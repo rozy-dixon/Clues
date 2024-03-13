@@ -8,6 +8,10 @@ class IsIt extends Phaser.Scene {
         this.ACCELERATION = 500
         this.PLAYERX = 16*8
         this.PLAYERY = 18*8
+        this.CLUE1X = 21*8
+        this.CLUE1Y = 20*8
+        this.CLUE2X = 6*8
+        this.CLUE2Y = 47*8
         this.VELOCITY_MULTIPLIER = 12
         this.physics.world.gravity.y = 900
     }
@@ -164,8 +168,8 @@ class IsIt extends Phaser.Scene {
         }
         if(this.collectIOne && this.collectS) {
             // [ ] animation
-            this.clueOne = this.physics.add.sprite(21*8, 20*8, 'letter').setOrigin(0)
-            this.add.bitmapText(21*8, 20*8, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
+            this.clueOne = this.physics.add.sprite(this.CLUE1X, this.CLUE1Y, 'letter').setOrigin(0)
+            this.add.bitmapText(this.CLUE1X, this.CLUE1X, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
             this.clueOne.body.onOverlap = true
             this.clueOne.body.setAllowGravity(false)
         }
