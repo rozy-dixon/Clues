@@ -5,7 +5,7 @@ class What extends Phaser.Scene {
 
     init() {
         // define variables
-        this.ACCELERATION = 800
+        this.ACCELERATION = 500
         this.PLAYERX = 120
         this.PLAYERY = 352
         this.VELOCITY_MULTIPLIER = 12
@@ -106,8 +106,9 @@ class What extends Phaser.Scene {
                 this.circle.setStrokeStyle(2, 0xFF0000, 1)
             }
             if(cursors.space.isDown) { 
-                this.jumpV--
+                this.jumpV -= .8
                 this.circle.setRadius(this.jumpV/3)
+                this.circle.setPosition(this.player.x, this.player.y)
                 // [ ] player shake
                 // [ ] particle emit
             }

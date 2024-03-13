@@ -5,7 +5,7 @@ class IsIt extends Phaser.Scene {
 
     init() {
         // define variables
-        this.ACCELERATION = 800
+        this.ACCELERATION = 500
         this.PLAYERX = 16*8
         this.PLAYERY = 18*8
         this.VELOCITY_MULTIPLIER = 12
@@ -129,8 +129,9 @@ class IsIt extends Phaser.Scene {
                 this.circle.setStrokeStyle(2, 0xFF0000, 1)
             }
             if(cursors.space.isDown) { 
-                this.jumpV--
+                this.jumpV -= .8
                 this.circle.setRadius(this.jumpV/3)
+                this.circle.setPosition(this.player.x, this.player.y)
                 // [ ] player shake
                 // [ ] particle emit
             }
@@ -139,7 +140,8 @@ class IsIt extends Phaser.Scene {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0
-                this.cameras.main.shake(80, 0.005)
+                if(!this.collectIOne && !this.collectS) { this.top.shake(80, 0.005) }
+                else { this.bottom.shake(80, 0.005) }
             }
         }
 
@@ -162,8 +164,8 @@ class IsIt extends Phaser.Scene {
         }
         if(this.collectIOne && this.collectS) {
             // [ ] animation
-            this.clueOne = this.physics.add.sprite(11*8, 6*8, 'letter').setOrigin(0)
-            this.add.bitmapText(11*8, 6*8, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
+            this.clueOne = this.physics.add.sprite(21*8, 20*8, 'letter').setOrigin(0)
+            this.add.bitmapText(21*8, 20*8, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
             this.clueOne.body.onOverlap = true
             this.clueOne.body.setAllowGravity(false)
         }
