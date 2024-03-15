@@ -9,7 +9,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         // physics
         this.body.setCollideWorldBounds(true)
         this.body.setCircle(this.width/2)
-        this.body.setBounce(.8)
+        this.body.setBounce(.5)
         this.body.onCollide = true
         this.body.onOverlap = true
         this.body.setMaxVelocity(2000)
