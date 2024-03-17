@@ -90,6 +90,7 @@ class Menu extends Phaser.Scene {
         }
 
         // forget scene config
+        // https://labs.phaser.io/edit.html?src=src\input\dragging\bring%20dragged%20item%20to%20top.js used as reference
         if(localStorage.getItem('forClue') == 'true') {
             this.emptyTile = this.physics.add.sprite(25*8, 23*8, 'empty').setOrigin(0)
             this.selectTile = this.add.sprite(17*8, 27*8, 'select').setOrigin(0, 0)

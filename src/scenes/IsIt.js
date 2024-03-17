@@ -49,12 +49,13 @@ class IsIt extends Phaser.Scene {
         this.tileIOne.body.onOverlap = true
         this.tileIOne.body.setAllowGravity(false)
         this.collectIOne = false
-        this.tileS = this.physics.add.sprite(7*8, 8*8, 'letter').setOrigin(0)  // H
+        this.tileS = this.physics.add.sprite(7*8, 8*8, 'letter').setOrigin(0)  // S
         this.letterS = this.add.bitmapText(7*8, 8*8, 'ZXSpectrumWhite', 'S', 7).setOrigin(0)
         this.tileS.body.onOverlap = true
         this.tileS.body.setAllowGravity(false)
         this.collectS = false
-        this.tileITwo = this.physics.add.sprite(23*8, 33*8, 'letter').setOrigin(0)  // 1 2
+        this.collectClueOne = false
+        this.tileITwo = this.physics.add.sprite(23*8, 33*8, 'letter').setOrigin(0)  // I 2
         this.letterITwo = this.add.bitmapText(23*8, 33*8, 'ZXSpectrumWhite', 'I', 7).setOrigin(0)
         this.tileITwo.body.onOverlap = true
         this.tileITwo.body.setAllowGravity(false)
@@ -78,7 +79,8 @@ class IsIt extends Phaser.Scene {
             // [ ] play death animation
             // screen shake
             this.dieParticles()
-            this.cameras.main.shake(100, 0.02)
+            if(this.collectClueOne) { this.bottom.shake(100, 0.02) }
+            else { this.top.shake(100, 0.02) }
             // send back to the start
             if (this.level == 'is') {
                 player.x = this.PLAYERX
@@ -146,8 +148,8 @@ class IsIt extends Phaser.Scene {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0
-                if(!this.collectIOne && !this.collectS) { this.top.shake(80, 0.005) }
-                else { this.bottom.shake(80, 0.005) }
+                if(this.collectClueOne) { this.bottom.shake(80, 0.008) }
+                else { this.top.shake(80, 0.008) }
             }
         }
 
@@ -176,6 +178,7 @@ class IsIt extends Phaser.Scene {
             this.clueOne.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clueOne)) {
+            this.collectClueOne = true
             this.level = 'it'
             this.player.x = this.playerx
             this.player.y = this.playery

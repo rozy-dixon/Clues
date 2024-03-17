@@ -59,6 +59,7 @@ class YouAre extends Phaser.Scene {
         this.tileU.body.onOverlap = true
         this.tileU.body.setAllowGravity(false)
         this.collectU = false
+        this.collectClueOne = false
         this.tileA = this.physics.add.sprite(9*8, 45*8, 'letter').setOrigin(0) // A
         this.letterA = this.add.bitmapText(9*8, 45*8, 'ZXSpectrumWhite', 'A', 7).setOrigin(0)
         this.tileA.body.onOverlap = true
@@ -88,7 +89,8 @@ class YouAre extends Phaser.Scene {
             // [ ] play death animation
             // screen shake
             this.dieParticles()
-            this.cameras.main.shake(100, 0.02)
+            if(this.collectClueOne) { this.bottom.shake(100, 0.02) }
+            else { this.top.shake(100, 0.02) }
             // send back to the start
             if (this.level == 'you') {
                 player.x = this.PLAYERX
@@ -156,8 +158,8 @@ class YouAre extends Phaser.Scene {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0
-                if(!this.collectIOne && !this.collectS) { this.top.shake(80, 0.005) }
-                else { this.bottom.shake(80, 0.005) }
+                if(this.collectClueOne) { this.bottom.shake(80, 0.008) }
+                else { this.top.shake(80, 0.008) }
             }
         }
 
@@ -197,6 +199,7 @@ class YouAre extends Phaser.Scene {
             this.level = 'are'
             this.player.x = this.playerx
             this.player.y = this.playery
+            this.collectClueOne = true
         }
         if(this.collectA && this.collectR && this.collectE) {
             // [ ] animation

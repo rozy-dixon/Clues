@@ -121,7 +121,7 @@ class What extends Phaser.Scene {
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0
-                this.cameras.main.shake(80, 0.005)
+                this.cameras.main.shake(80, 0.008)
             }
         }
 
