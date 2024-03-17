@@ -150,6 +150,12 @@ class What extends Phaser.Scene {
             this.clue.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clue)) {
+            if(localStorage.getItem('whatClue') == null) {
+                localStorage.setItem('whatClue', 'true')
+                console.log('%cLevel What: 1st completion', "color: #91aa86")
+            } else {
+                console.log('%cLevel What: already completed', "color: #c088ae")
+            }
             this.scene.start('menuScene')
         }
 

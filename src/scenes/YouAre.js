@@ -10,7 +10,7 @@ class YouAre extends Phaser.Scene {
         this.PLAYERY = 18*8
         this.CLUE1X = 25*8
         this.CLUE1Y = 19*8
-        this.CLUE2X = 21*8
+        this.CLUE2X = 18*8
         this.CLUE2Y = 31*8
         this.VELOCITY_MULTIPLIER = 12
         this.physics.world.gravity.y = 1100
@@ -69,8 +69,8 @@ class YouAre extends Phaser.Scene {
         this.tileR.body.onOverlap = true
         this.tileR.body.setAllowGravity(false)
         this.collectR = false
-        this.tileE = this.physics.add.sprite(13*8, 40*8, 'letter').setOrigin(0) // E
-        this.letterE = this.add.bitmapText(13*8, 40*8, 'ZXSpectrumWhite', 'E', 7).setOrigin(0)
+        this.tileE = this.physics.add.sprite(13*8, 41*8, 'letter').setOrigin(0) // E
+        this.letterE = this.add.bitmapText(13*8, 41*8, 'ZXSpectrumWhite', 'E', 7).setOrigin(0)
         this.tileE.body.onOverlap = true
         this.tileE.body.setAllowGravity(false)
         this.collectE = false
@@ -206,6 +206,12 @@ class YouAre extends Phaser.Scene {
             this.clueTwo.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clueTwo)) {
+            if(localStorage.getItem('youAreClue') == null) {
+                localStorage.setItem('youAreClue', 'true')
+                console.log('%cLevel YouAre: 1st completion', "color: #91aa86")
+            } else {
+                console.log('%cLevel YouAre: already completed', "color: #c088ae")
+            }
             this.scene.start('menuScene')
         }
 

@@ -10,6 +10,7 @@
 // creative tilt:
 // 
 
+// making it easy for myself
 'use strict'
 
 let config = {
@@ -37,12 +38,15 @@ let config = {
     scene: [ Load, Title, Menu, What, IsIt, That, YouAre, Looking, For, Rules, MysterySolved ],
 }
 
+// variable set-up
 const game = new Phaser.Game(config)
-const tileSize = 8
-
+// convenience variables
 let centerX = game.config.width/2
 let centerY = game.config.height/2
 let w = game.config.width
 let h = game.config.height
+// cursors and keys
 let cursors, keyCREDITS, keyEXIT, keyRULES, keyFORGET
 let key1, key2, key3, key4, key5, key6, key7, key8
+// memory
+let whatClue, isItClue, thatClue, youAreClue, lookingClue, forClue = false

@@ -6,8 +6,8 @@ class Looking extends Phaser.Scene {
     init() {
         // define variables
         this.ACCELERATION = 500
-        this.PLAYERX = 30*8
-        this.PLAYERY = 4*8
+        this.PLAYERX = 19*8
+        this.PLAYERY = 23*8
         this.CLUEX = 6*8
         this.CLUEY = 14*8
         this.VELOCITY_MULTIPLIER = 12
@@ -179,6 +179,12 @@ class Looking extends Phaser.Scene {
             this.clue.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clue)) {
+            if(localStorage.getItem('lookingClue') == null) {
+                localStorage.setItem('lookingClue', 'true')
+                console.log('%cLevel Looking: 1st completion', "color: #91aa86")
+            } else {
+                console.log('%cLevel Looking: already completed', "color: #c088ae")
+            }
             this.scene.start('menuScene')
         }
 

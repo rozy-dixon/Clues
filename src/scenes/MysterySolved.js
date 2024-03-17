@@ -13,7 +13,7 @@ class MysterySolved extends Phaser.Scene {
         if(Phaser.Input.Keyboard.JustDown(keyEXIT)) { this.scene.start('menuScene') }
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
             console.log('forgotten')
-            //localStorage.clear()
+            localStorage.clear()
             // creds
         }
     }

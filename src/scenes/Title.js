@@ -28,12 +28,18 @@ class Title extends Phaser.Scene {
         this.add.bitmapText(centerX, 112, 'ZXSpectrum', 'UP FOR START', 7).setOrigin(0.5)
         this.add.bitmapText(centerX, 120, 'ZXSpectrum', 'R FOR RULES', 7).setOrigin(0.5)
         this.add.bitmapText(centerX, 128, 'ZXSpectrum', 'C FOR CREDITS', 7).setOrigin(0.5)
+
+        keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
     }
 
     update() {
         if(cursors.up.isDown) {
             this.tune.play()
             this.scene.start('menuScene')
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
+            console.log('forgotten')
+            localStorage.clear()
         }
     }
 }

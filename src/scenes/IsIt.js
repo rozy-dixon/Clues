@@ -69,8 +69,8 @@ class IsIt extends Phaser.Scene {
         this.player = new Player(this, this.PLAYERX, this.PLAYERY)
         
         // colliders
-        this.playerx = 17*8
-        this.playery = 45*8
+        this.playerx = 19*8
+        this.playery = 47*8
         this.physics.world.setBounds(0, 0, w, h, true, true, true, true)
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
@@ -188,6 +188,12 @@ class IsIt extends Phaser.Scene {
             this.clueTwo.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clueTwo)) {
+            if(localStorage.getItem('isItClue') == null) {
+                localStorage.setItem('isItClue', 'true')
+                console.log('%cLevel IsIt: 1st completion', "color: #91aa86")
+            } else {
+                console.log('%cLevel IsIt: already completed', "color: #c088ae")
+            }
             this.scene.start('menuScene')
         }
 
