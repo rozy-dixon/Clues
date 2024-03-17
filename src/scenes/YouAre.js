@@ -5,7 +5,7 @@ class YouAre extends Phaser.Scene {
 
     init() {
         // define variables
-        this.ACCELERATION = 500
+        this.ACCELERATION = 400
         this.PLAYERX = 16*8
         this.PLAYERY = 18*8
         this.CLUE1X = 25*8
@@ -145,7 +145,7 @@ class YouAre extends Phaser.Scene {
                 this.circle.setStrokeStyle(1, 0x000000, 1)
             }
             if(cursors.space.isDown) { 
-                this.jumpV -= .8
+                this.jumpV -= .6
                 this.circle.setRadius(this.jumpV/3)
                 this.circle.setPosition(this.player.x, this.player.y)
                 // [ ] player shake

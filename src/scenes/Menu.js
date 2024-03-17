@@ -13,9 +13,13 @@ class Menu extends Phaser.Scene {
     create() {
         console.log('%cMENU SCENE :^)', "color: #cfd1af")   // making sure
 
+        if(localStorage.getItem('forClue') == 'true') {
+            console.log('%cITS CUT SCENE TIME', "color: #91aa86")
+        }
+
         // set border color
         document.getElementsByTagName('canvas')[0].style.borderColor = '#FFFFFF'
-        
+
         // tile config
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
