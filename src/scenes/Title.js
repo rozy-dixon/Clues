@@ -63,7 +63,7 @@ class Title extends Phaser.Scene {
             })
         }
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
-            console.log('forgotten')
+            console.log('%cYOU HAVE FORGOTTEN.', "color: #c088ae")
             localStorage.clear()
         }
     }

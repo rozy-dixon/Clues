@@ -46,5 +46,5 @@ let centerY = game.config.height/2
 let w = game.config.width
 let h = game.config.height
 // cursors and keys
-let cursors, keyCREDITS, keyEXIT, keyRULES, keyFORGET
+let cursors, keyCREDITS, keyEXIT, keyRULES, keyFORGET, keyENTER
 let key1, key2, key3, key4, key5, key6, key7, key8

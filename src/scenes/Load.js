@@ -34,7 +34,9 @@ class Load extends Phaser.Scene {
         this.load.bitmapFont('ZXSpectrumWhite', './assets/fonts/ZXSpectrumWhite.png', './assets/fonts/ZXSpectrumWhite.xml')
         // load spritesheets and images
         this.load.spritesheet('player', './assets/spritesheets/player.png', { frameWidth: 5, frameHeight: 5 })
+        this.load.spritesheet('select', './assets/spritesheets/select.png', { frameWidth: 9, frameHeight: 9 })
         this.load.image('letter', './assets/letter.png')
+        this.load.image('empty', './assets/empty.png')
         this.load.image('1PParticle', './assets/particles/1PParticle.png')
         this.load.image('4PParticle', './assets/particles/4PParticle.png')
         this.load.image('9PParticle', './assets/particles/9PParticle.png')
@@ -52,10 +54,10 @@ class Load extends Phaser.Scene {
             repeat: -1
         })
         this.anims.create({
-            key: 'buzz',
-            frames: this.anims.generateFrameNames('player', { start: 0, end: 3 }),
-            frameRate: 15,
-            repeat: 5
+            key: 'flash',
+            frames: this.anims.generateFrameNames('select', { start: 0, end: 1 }),
+            frameRate: 5,
+            repeat: -1
         })
 
         // check for local storage browser support
