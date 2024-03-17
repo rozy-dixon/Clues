@@ -32,6 +32,10 @@ class Load extends Phaser.Scene {
         // load spritesheets and images
         this.load.spritesheet('player', './assets/spritesheets/player.png', { frameWidth: 5, frameHeight: 5 })
         this.load.image('letter', './assets/letter.png')
+        this.load.image('1PParticle', './assets/particles/1PParticle.png')
+        this.load.image('4PParticle', './assets/particles/4PParticle.png')
+        this.load.image('9PParticle', './assets/particles/9PParticle.png')
+        this.load.image('16PParticle', './assets/particles/16PParticle.png')
     }
 
     create() {

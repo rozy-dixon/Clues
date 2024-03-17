@@ -1,26 +1,26 @@
-class IsIt extends Phaser.Scene {
+class YouAre extends Phaser.Scene {
     constructor() {
-        super('isItScene')
+        super('youAreScene')
     }
 
     init() {
         // define variables
         this.ACCELERATION = 500
-        this.PLAYERX = 23*8
+        this.PLAYERX = 16*8
         this.PLAYERY = 18*8
-        this.CLUE1X = 13*8
-        this.CLUE1Y = 16*8
-        this.CLUE2X = 10*8
+        this.CLUE1X = 25*8
+        this.CLUE1Y = 19*8
+        this.CLUE2X = 21*8
         this.CLUE2Y = 31*8
         this.VELOCITY_MULTIPLIER = 12
-        this.physics.world.gravity.y = 900
+        this.physics.world.gravity.y = 1100
     }
 
     create() {
-        console.log('%cISIT SCENE :^)', "color: #cfd1af")   // making sure
+        console.log('%cYOU ARE SCENE :^)', "color: #cfd1af")    // making sure
 
         // camera config
-        this.level = 'is'
+        this.level = 'you'
         this.top = this.cameras.add(0, 0, w, centerY)
         this.top.setBounds(0, 0, w, centerY)
         this.bottom = this.cameras.add(0, centerY, w, centerY)
@@ -34,36 +34,46 @@ class IsIt extends Phaser.Scene {
         const cluesTileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
         const levelTileset = map.addTilesetImage('level_tilesheet', 'levelTilesheetPNG')
         // tilemaps
-        map.createLayer('IsItBackground', levelTileset, 0, 0)
-        const frameLayer = map.createLayer('IsItFrame', cluesTileset, 0, 0)
+        map.createLayer('YouAreBackground', levelTileset, 0, 0)
+        const frameLayer = map.createLayer('YouAreFrame', cluesTileset, 0, 0)
         frameLayer.setCollisionByProperty({ collidable: true })
-        const checkeredLayer = map.createLayer('IsItCheckers', cluesTileset, 0, 0)
+        const checkeredLayer = map.createLayer('YouAreCheckers', cluesTileset, 0, 0)
         checkeredLayer.setCollisionByProperty({ collidable: true })
-        this.waveLayer = map.createLayer('IsItWaves', cluesTileset, 0, 0)
+        this.waveLayer = map.createLayer('YouAreWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
-        map.createLayer('IsItDots', levelTileset, 0, 0)
+        //map.createLayer('IsItDots', levelTileset, 0, 0)
 
         // letter collection graphics (tileX*8, tileY*8, w, h, color)
-        this.tileIOne = this.physics.add.sprite(28*8, 12*8, 'letter').setOrigin(0) // I 1
-        this.letterIOne = this.add.bitmapText(28*8, 12*8, 'ZXSpectrumWhite', 'I', 7).setOrigin(0)
-        this.tileIOne.body.onOverlap = true
-        this.tileIOne.body.setAllowGravity(false)
-        this.collectIOne = false
-        this.tileS = this.physics.add.sprite(7*8, 8*8, 'letter').setOrigin(0)  // H
-        this.letterS = this.add.bitmapText(7*8, 8*8, 'ZXSpectrumWhite', 'S', 7).setOrigin(0)
-        this.tileS.body.onOverlap = true
-        this.tileS.body.setAllowGravity(false)
-        this.collectS = false
-        this.tileITwo = this.physics.add.sprite(23*8, 33*8, 'letter').setOrigin(0)  // 1 2
-        this.letterITwo = this.add.bitmapText(23*8, 33*8, 'ZXSpectrumWhite', 'I', 7).setOrigin(0)
-        this.tileITwo.body.onOverlap = true
-        this.tileITwo.body.setAllowGravity(false)
-        this.collectITwo = false
-        this.tileT = this.physics.add.sprite(13*8, 42*8, 'letter').setOrigin(0) // T
-        this.letterT = this.add.bitmapText(13*8, 42*8, 'ZXSpectrumWhite', 'T', 7).setOrigin(0)
-        this.tileT.body.onOverlap = true
-        this.tileT.body.setAllowGravity(false)
-        this.collectT = false
+        this.tileY = this.physics.add.sprite(24*8, 15*8, 'letter').setOrigin(0) // Y
+        this.letterY = this.add.bitmapText(24*8, 15*8, 'ZXSpectrumWhite', 'Y', 7).setOrigin(0)
+        this.tileY.body.onOverlap = true
+        this.tileY.body.setAllowGravity(false)
+        this.collectY = false
+        this.tileO = this.physics.add.sprite(9*8, 6*8, 'letter').setOrigin(0)  // O
+        this.letterO = this.add.bitmapText(9*8, 6*8, 'ZXSpectrumWhite', 'O', 7).setOrigin(0)
+        this.tileO.body.onOverlap = true
+        this.tileO.body.setAllowGravity(false)
+        this.collectO = false
+        this.tileU = this.physics.add.sprite(26*8, 6*8, 'letter').setOrigin(0)  // U
+        this.letterU = this.add.bitmapText(26*8, 6*8, 'ZXSpectrumWhite', 'U', 7).setOrigin(0)
+        this.tileU.body.onOverlap = true
+        this.tileU.body.setAllowGravity(false)
+        this.collectU = false
+        this.tileA = this.physics.add.sprite(9*8, 45*8, 'letter').setOrigin(0) // A
+        this.letterA = this.add.bitmapText(9*8, 45*8, 'ZXSpectrumWhite', 'A', 7).setOrigin(0)
+        this.tileA.body.onOverlap = true
+        this.tileA.body.setAllowGravity(false)
+        this.collectA = false
+        this.tileR = this.physics.add.sprite(26*8, 43*8, 'letter').setOrigin(0) // R
+        this.letterR = this.add.bitmapText(26*8, 43*8, 'ZXSpectrumWhite', 'R', 7).setOrigin(0)
+        this.tileR.body.onOverlap = true
+        this.tileR.body.setAllowGravity(false)
+        this.collectR = false
+        this.tileE = this.physics.add.sprite(13*8, 40*8, 'letter').setOrigin(0) // E
+        this.letterE = this.add.bitmapText(13*8, 40*8, 'ZXSpectrumWhite', 'E', 7).setOrigin(0)
+        this.tileE.body.onOverlap = true
+        this.tileE.body.setAllowGravity(false)
+        this.collectE = false
 
         // player
         this.player = new Player(this, this.PLAYERX, this.PLAYERY)
@@ -80,7 +90,7 @@ class IsIt extends Phaser.Scene {
             this.dieParticles()
             this.cameras.main.shake(100, 0.02)
             // send back to the start
-            if (this.level == 'is') {
+            if (this.level == 'you') {
                 player.x = this.PLAYERX
                 player.y = this.PLAYERY
             } else {
@@ -109,7 +119,7 @@ class IsIt extends Phaser.Scene {
         if(!cursors.left.isDown && !cursors.right.isDown) { this.player.body.setAccelerationX(0) }
 
         // camera tilt
-        if(this.level == 'is') {
+        if(this.level == 'you') {
             if(cursors.left.isDown && this.top.rotation > -0.05) { this.top.rotation -= 0.001 }
             if(cursors.left.isDown && this.top.rotation > 0) { this.top.rotation -= 0.005 }
             if(cursors.right.isDown && this.top.rotation < 0.05) { this.top.rotation += 0.001 }
@@ -152,23 +162,31 @@ class IsIt extends Phaser.Scene {
         }
 
         // collecting letters to spawn clue
-        if(this.physics.overlap(this.player, this.tileIOne) && !this.collectIOne) {
-            this.collectIOne = true
-            this.letterIOne.destroy()
+        if(this.physics.overlap(this.player, this.tileY) && !this.collectY) {
+            this.collectY = true
+            this.letterY.destroy()
         }
-        if(this.physics.overlap(this.player, this.tileS) && !this.collectS) {
-            this.collectS = true
-            this.letterS.destroy()
+        if(this.physics.overlap(this.player, this.tileO) && !this.collectO) {
+            this.collectO = true
+            this.letterO.destroy()
         }
-        if(this.physics.overlap(this.player, this.tileITwo) && !this.collectITwo) {
-            this.collectITwo = true
-            this.letterITwo.destroy()
+        if(this.physics.overlap(this.player, this.tileU) && !this.collectU) {
+            this.collectU = true
+            this.letterU.destroy()
         }
-        if(this.physics.overlap(this.player, this.tileT) && !this.collectT) {
-            this.collectT = true
-            this.letterT.destroy()
+        if(this.physics.overlap(this.player, this.tileA) && !this.collectA) {
+            this.collectA = true
+            this.letterA.destroy()
         }
-        if(this.collectIOne && this.collectS) {
+        if(this.physics.overlap(this.player, this.tileR) && !this.collectR) {
+            this.collectR = true
+            this.letterR.destroy()
+        }
+        if(this.physics.overlap(this.player, this.tileE) && !this.collectE) {
+            this.collectE = true
+            this.letterE.destroy()
+        }
+        if(this.collectY && this.collectO && this.collectU) {
             // [ ] animation
             this.clueOne = this.physics.add.sprite(this.CLUE1X, this.CLUE1Y, 'letter').setOrigin(0)
             this.add.bitmapText(this.CLUE1X, this.CLUE1Y, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
@@ -176,11 +194,11 @@ class IsIt extends Phaser.Scene {
             this.clueOne.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clueOne)) {
-            this.level = 'it'
+            this.level = 'are'
             this.player.x = this.playerx
             this.player.y = this.playery
         }
-        if(this.collectITwo && this.collectT) {
+        if(this.collectA && this.collectR && this.collectE) {
             // [ ] animation
             this.clueTwo = this.physics.add.sprite(this.CLUE2X, this.CLUE2Y, 'letter').setOrigin(0)
             this.add.bitmapText(this.CLUE2X, this.CLUE2Y, 'ZXSpectrumWhite', '?', 7).setOrigin(0)

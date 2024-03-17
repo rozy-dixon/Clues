@@ -1,6 +1,14 @@
 // name: Rosalind Dixon
 // title: Clues
+// major components:
+// - tilemaps
+// - text objects
+// - animation
+// - physics systems
+// - cameras
+// - particle effects
 // creative tilt:
+// 
 
 'use strict'
 
@@ -26,7 +34,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, What, IsIt, That, You, Are, Looking, For, Here, Rules, MysterySolved ],
+    scene: [ Load, Title, Menu, What, IsIt, That, YouAre, Looking, For, Rules, MysterySolved ],
 }
 
 const game = new Phaser.Game(config)

@@ -6,8 +6,10 @@ class What extends Phaser.Scene {
     init() {
         // define variables
         this.ACCELERATION = 500
-        this.PLAYERX = 120
-        this.PLAYERY = 352
+        this.PLAYERX = 16*8
+        this.PLAYERY = 48*8
+        this.CLUEX = 31*8
+        this.CLUEY = 43*8
         this.VELOCITY_MULTIPLIER = 12
         this.physics.world.gravity.y = 800
     }
@@ -26,15 +28,15 @@ class What extends Phaser.Scene {
         map.createLayer('TutorialBackground', levelTileset, 0, 0)
         const frameLayer = map.createLayer('TutorialFrame', cluesTileset, 0, 0)
         frameLayer.setCollisionByProperty({ collidable: true })
-        const checkeredLayer = map.createLayer('TutorialCheckers', cluesTileset, 0, 0)
+        const checkeredLayer = map.createLayer('TutorialCheckers', levelTileset, 0, 0)
         checkeredLayer.setCollisionByProperty({ collidable: true })
         this.waveLayer = map.createLayer('TutorialWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
         map.createLayer('TutorialDots', levelTileset, 0, 0)
 
         // letter collection graphics (tileX*8, tileY*8, w, h, color)
-        this.tileW = this.physics.add.sprite(30*8, 37*8, 'letter').setOrigin(0) // W
-        this.letterW = this.add.bitmapText(30*8, 37*8, 'ZXSpectrumWhite', 'W', 7).setOrigin(0)
+        this.tileW = this.physics.add.sprite(10*8, 46*8, 'letter').setOrigin(0) // W
+        this.letterW = this.add.bitmapText(10*8, 46*8, 'ZXSpectrumWhite', 'W', 7).setOrigin(0)
         this.tileW.body.onOverlap = true
         this.tileW.body.setAllowGravity(false)
         this.collectW = false
@@ -43,8 +45,8 @@ class What extends Phaser.Scene {
         this.tileH.body.onOverlap = true
         this.tileH.body.setAllowGravity(false)
         this.collectH = false
-        this.tileA = this.physics.add.sprite(9*8, 46*8, 'letter').setOrigin(0)  // A
-        this.letterA = this.add.bitmapText(9*8, 46*8, 'ZXSpectrumWhite', 'A', 7).setOrigin(0)
+        this.tileA = this.physics.add.sprite(21*8, 5*8, 'letter').setOrigin(0)  // A
+        this.letterA = this.add.bitmapText(21*8, 5*8, 'ZXSpectrumWhite', 'A', 7).setOrigin(0)
         this.tileA.body.onOverlap = true
         this.tileA.body.setAllowGravity(false)
         this.collectA = false
@@ -64,12 +66,14 @@ class What extends Phaser.Scene {
         this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
             // [ ] play death animation
             // screen shake
-            this.cameras.main.shake(100, 0.01)
+            this.dieParticles()
+            this.cameras.main.shake(100, 0.02)
             // send back to the start
             player.x = this.PLAYERX
             player.y = this.PLAYERY
             // play respawn sound
             this.sound.play('respawn')
+            this.respawnParticles()
             player.setVelocity(0)
         }, null, this)
 
@@ -103,17 +107,17 @@ class What extends Phaser.Scene {
             this.player.anims.play('jump')
             if(Phaser.Input.Keyboard.JustDown(cursors.space)) {
                 this.circle.setPosition(this.player.x, this.player.y)
-                this.circle.setStrokeStyle(2, 0xFF0000, 1)
+                this.circle.setStrokeStyle(1, 0x000000, 1)
             }
             if(cursors.space.isDown) { 
                 this.jumpV -= .8
                 this.circle.setRadius(this.jumpV/3)
                 this.circle.setPosition(this.player.x, this.player.y)
                 // [ ] player shake
-                // [ ] particle emit
             }
             if(Phaser.Input.Keyboard.JustUp(cursors.space) || this.jumpV <= -100 ) {
-                this.circle.setStrokeStyle(2, 0xFF0000, 0)
+                this.releaseParticles()
+                this.circle.setStrokeStyle(1, 0x000000, 0)
                 this.player.body.setVelocityY(this.jumpV*this.VELOCITY_MULTIPLIER)
                 this.sound.play('jump')
                 this.jumpV = 0
@@ -140,8 +144,8 @@ class What extends Phaser.Scene {
         }
         if(this.collectW && this.collectH && this.collectA && this.collectT) {
             // [ ] animation
-            this.clue = this.physics.add.sprite(17*8, 49*8, 'letter').setOrigin(0)
-            this.add.bitmapText(17*8, 49*8, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
+            this.clue = this.physics.add.sprite(this.CLUEX, this.CLUEY, 'letter').setOrigin(0)
+            this.add.bitmapText(this.CLUEX, this.CLUEY, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
             this.clue.body.onOverlap = true
             this.clue.body.setAllowGravity(false)
         }
@@ -150,5 +154,39 @@ class What extends Phaser.Scene {
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyEXIT)) { this.scene.start('menuScene') }
+    }
+
+    dieParticles() {
+        this.add.particles(this.player.x, this.player.y, '4PParticle', {
+            speed: 60,
+            lifespan: 300,
+            maxParticles: 8
+        }).setDepth(100)
+        this.add.particles(this.player.x, this.player.y, '9PParticle', {
+            speed: 40,
+            lifespan: 200,
+            maxParticles: 8
+        }).setDepth(100)
+    }
+
+    releaseParticles() {
+        this.add.particles(this.player.x, this.player.y, '1PParticle', {
+            speed: 60,
+            lifespan: 100,
+            maxParticles: 4
+        }).setDepth(100)
+        this.add.particles(this.player.x, this.player.y, '4PParticle', {
+            speed: 80,
+            lifespan: 100,
+            maxParticles: 8
+        }).setDepth(100)
+    }
+
+    respawnParticles() {
+        this.add.particles(this.player.x, this.player.y, '1PParticle', {
+            speed: 80,
+            lifespan: 100,
+            maxParticles: 10
+        }).setDepth(100)
     }
 }

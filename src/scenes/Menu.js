@@ -25,26 +25,21 @@ class Menu extends Phaser.Scene {
         key4 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.FOUR)
         key5 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.FIVE)
         key6 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SIX)
-        key7 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SEVEN)
-        key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
-        key8 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.EIGHT)
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
 
         // temp menu control
         this.add.rectangle(centerX, centerY, 168, 64, 0x000000).setOrigin(0.5)
 
-        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', '1 OR 2 TO PLAY', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', '1-6 TO PLAY', 7).setOrigin(0.5)
     }
 
     update() {
         if(key1.isDown) { this.scene.start('whatScene') }
         if(key2.isDown) { this.scene.start('isItScene') }
         if(key3.isDown) { this.scene.start('thatScene') }
-        if(key4.isDown) { this.scene.start('youScene') }
-        if(key5.isDown) { this.scene.start('areScene') }
-        if(key6.isDown) { this.scene.start('lookingScene') }
-        if(key7.isDown) { this.scene.start('forScene') }
-        if(key8.isDown) { this.scene.start('hereScene') }
+        if(key4.isDown) { this.scene.start('youAreScene') }
+        if(key5.isDown) { this.scene.start('lookingScene') }
+        if(key6.isDown) { this.scene.start('forScene') }
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) { this.scene.start('mysterySolvedScene')}
     }
 }
