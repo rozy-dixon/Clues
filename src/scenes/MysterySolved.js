@@ -7,6 +7,8 @@ class MysterySolved extends Phaser.Scene {
         console.log('%cMYSTERY SOLVED SCENE :^)', "color: #cfd1af") // making sure
 
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
+
+        this.add.bitmapText(centerX, centerY, 'ZXSpectrumWhite', 'F TO FORGET', 7).setOrigin(0.5)
     }
 
     update() {
@@ -14,7 +16,7 @@ class MysterySolved extends Phaser.Scene {
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
             console.log('forgotten')
             localStorage.clear()
-            // creds
+            this.scene.start('titleScene')
         }
     }
 }
