@@ -3,12 +3,19 @@ class Menu extends Phaser.Scene {
         super('menuScene')
     }
 
+    init(data) {
+        this.tune1 = data.tune1
+        this.tune2 = data.tune2
+        this.tune3 = data.tune3
+        this.solved = data.solved
+    }
+
     create() {
         console.log('%cMENU SCENE :^)', "color: #cfd1af")   // making sure
 
         // set border color
         document.getElementsByTagName('canvas')[0].style.borderColor = '#FFFFFF'
-
+        
         // tile config
         const map = this.add.tilemap('menuTilemapJSON')
         const tileset = map.addTilesetImage('clues_tilesheet', 'cluesTilesheetPNG')
@@ -38,8 +45,16 @@ class Menu extends Phaser.Scene {
         if(key2.isDown) { this.scene.start('isItScene') }
         if(key3.isDown) { this.scene.start('thatScene') }
         if(key4.isDown) { this.scene.start('youAreScene') }
-        if(key5.isDown) { this.scene.start('lookingScene') }
-        if(key6.isDown) { this.scene.start('forScene') }
+        if(key5.isDown) {
+            this.tune1.setVolume(0)
+            if(this.tune3.volume != 1) { this.tune2.setVolume(1) }
+            this.scene.start('lookingScene')
+        }
+        if(key6.isDown) {
+            this.tune2.setVolume(0)
+            this.tune3.setVolume(1)
+            this.scene.start('forScene')
+        }
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) { this.scene.start('mysterySolvedScene')}
     }
 }

@@ -22,6 +22,9 @@ class Load extends Phaser.Scene {
         this.load.tilemapTiledJSON('menuTilemapJSON', './assets/tilemaps/menuTilemap.json')
         // load tunes
         this.load.audio('tune1', './assets/audio/tune1.mp3')
+        this.load.audio('tune2', './assets/audio/tune2.mp3')
+        this.load.audio('tune3', './assets/audio/tune3.mp3')
+        this.load.audio('solved', './assets/audio/solved.mp3')
         // load sfx
         this.load.audio('select', './assets/audio/select.wav')
         this.load.audio('jump', './assets/audio/jump.wav')

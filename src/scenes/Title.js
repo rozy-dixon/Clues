@@ -10,7 +10,25 @@ class Title extends Phaser.Scene {
         document.getElementsByTagName('canvas')[0].style.borderColor = '#FFFFFF'
 
         // play my little tune
-        this.tune = this.sound.add('tune1', { 
+        this.tune1 = this.sound.add('tune1', { 
+            mute: false,
+            volume: 1,
+            rate: 1,
+            loop: true
+        })
+        this.tune2 = this.sound.add('tune2', { 
+            mute: false,
+            volume: 0,
+            rate: 1,
+            loop: true
+        })
+        this.tune3 = this.sound.add('tune3', { 
+            mute: false,
+            volume: 0,
+            rate: 1,
+            loop: true
+        })
+        this.solved = this.sound.add('solved', { 
             mute: false,
             volume: 1,
             rate: 1,
@@ -34,8 +52,15 @@ class Title extends Phaser.Scene {
 
     update() {
         if(cursors.up.isDown) {
-            this.tune.play()
-            this.scene.start('menuScene')
+            this.tune1.play()
+            this.tune2.play()
+            this.tune3.play()
+            this.scene.start('menuScene', {
+                tune1: this.tune1,
+                tune2: this.tune2,
+                tune3: this.tune3,
+                solved: this.solved
+            })
         }
         if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
             console.log('forgotten')
