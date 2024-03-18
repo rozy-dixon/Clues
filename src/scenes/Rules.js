@@ -10,9 +10,8 @@ class Rules extends Phaser.Scene {
     create() {
         console.log('%cRULES SCENE :^)', "color: #cfd1af")  // making sure
 
-        // define cursors, R, and C
+        // define cursors and R
         cursors = this.input.keyboard.createCursorKeys()
-        keyCREDITS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C)
         keyRULES = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
 
         // rules image

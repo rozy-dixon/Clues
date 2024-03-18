@@ -47,6 +47,7 @@ class Title extends Phaser.Scene {
         this.add.bitmapText(centerX-(8*2), 15*8, 'ZXSpectrum', 'CREDITS', 7).setOrigin(0, 0)
         this.add.bitmapText(centerX-(8*2), 16*8, 'ZXSpectrum', 'FORGET', 7).setOrigin(0, 0)
         this.forgetText = this.add.bitmapText(centerX, h-(88+16), 'ZXSpectrum', 'YOU HAVE FORGOTTEN.', 7).setOrigin(0.5, 0).setAlpha(0)
+        this.add.bitmapText(centerX, h-88-8, 'ZXSpectrum', 'G FOR GRADER CONTROLS', 7).setOrigin(0.5, 0)
         this.add.bitmapText(centerX, h-88, 'ZXSpectrum', 'R FOR RULES', 7).setOrigin(0.5, 0)
 
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)

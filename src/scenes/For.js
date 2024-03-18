@@ -125,6 +125,7 @@ class For extends Phaser.Scene {
         this.jumpV = 0
 
         keyEXIT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
+        keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
 
         this.circle = this.add.circle(centerX, centerY, 0)
     }
@@ -200,6 +201,16 @@ class For extends Phaser.Scene {
             this.clue.body.setAllowGravity(false)
         }
         if(this.physics.overlap(this.player, this.clue)) {  // GAME OVER
+            if(localStorage.getItem('forClue') == null) {
+                localStorage.setItem('forClue', 'true')
+                console.log('%cLevel For: 1st completion', "color: #91aa86")
+            } else {
+                console.log('%cLevel For: already completed', "color: #c088ae")
+            }
+            this.scene.start('menuScene')
+        }
+
+        if(cursors.shift.isDown && Phaser.Input.Keyboard.JustDown(keyENTER)) {  // GRADER GAME OVER
             if(localStorage.getItem('forClue') == null) {
                 localStorage.setItem('forClue', 'true')
                 console.log('%cLevel For: 1st completion', "color: #91aa86")
