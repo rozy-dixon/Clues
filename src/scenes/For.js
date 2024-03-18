@@ -53,6 +53,24 @@ class For extends Phaser.Scene {
         this.tileR.body.setAllowGravity(false)
         this.collectR = false
 
+        // glitch
+        // between (21, 31) and (33, 43)
+        this.glicthTile1 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile2 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile3 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile4 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile5 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile6 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile7 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile8 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.glicthTile9 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+        this.timer = this.time.addEvent({
+            delay: 150,
+            loop: true,
+            callback: this.glitchTick,
+            callbackScope: this
+        })
+
         // player
         this.player = new Player(this, this.PLAYERX, this.PLAYERY)
         
@@ -151,6 +169,16 @@ class For extends Phaser.Scene {
         if(this.collectF && this.collectO && this.collectR) {
             // [ ] animation
             this.glitchLayer.setX(1000) // I know that this may not be the most elegant way to do this, but it works.
+            this.timer.destroy()
+            this.glicthTile1.destroy()
+            this.glicthTile2.destroy()
+            this.glicthTile3.destroy()
+            this.glicthTile4.destroy()
+            this.glicthTile5.destroy()
+            this.glicthTile6.destroy()
+            this.glicthTile7.destroy()
+            this.glicthTile8.destroy()
+            this.glicthTile9.destroy()
             this.clue = this.physics.add.sprite(this.CLUEX, this.CLUEY, 'letter').setOrigin(0)
             this.add.bitmapText(this.CLUEX, this.CLUEY, 'ZXSpectrumWhite', '?', 7).setOrigin(0)
             this.clue.body.onOverlap = true
@@ -201,5 +229,17 @@ class For extends Phaser.Scene {
             lifespan: 100,
             maxParticles: 10
         }).setDepth(100)
+    }
+
+    glitchTick() {
+        this.glicthTile1.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile2.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile3.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile4.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile5.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile6.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile7.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile8.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
+        this.glicthTile9.setX(Phaser.Math.Between(21, 33)*8).setY(Phaser.Math.Between(31, 43)*8)
     }
 }

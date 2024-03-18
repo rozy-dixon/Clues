@@ -42,16 +42,36 @@ class Title extends Phaser.Scene {
         map.createLayer('Frame', tileset, 0, 0)
 
         // title and 
-        this.add.bitmapText(centerX, 80, 'ZXSpectrum', 'CLUES', 7).setOrigin(0.5)
-        this.add.bitmapText(centerX, 112, 'ZXSpectrum', 'UP FOR START', 7).setOrigin(0.5)
-        this.add.bitmapText(centerX, 120, 'ZXSpectrum', 'R FOR RULES', 7).setOrigin(0.5)
-        this.add.bitmapText(centerX, 128, 'ZXSpectrum', 'C FOR CREDITS', 7).setOrigin(0.5)
+        this.add.bitmapText(centerX, 10*8, 'ZXSpectrum', 'CLUES', 7).setOrigin(0.5, 0)
+        this.add.bitmapText(centerX-(8*2), 14*8, 'ZXSpectrum', 'START', 7).setOrigin(0, 0)
+        this.add.bitmapText(centerX-(8*2), 15*8, 'ZXSpectrum', 'CREDITS', 7).setOrigin(0, 0)
+        this.add.bitmapText(centerX-(8*2), 16*8, 'ZXSpectrum', 'FORGET', 7).setOrigin(0, 0)
+        this.forgetText = this.add.bitmapText(centerX, h-(88+16), 'ZXSpectrum', 'YOU HAVE FORGOTTEN.', 7).setOrigin(0.5, 0).setAlpha(0)
+        this.add.bitmapText(centerX, h-88, 'ZXSpectrum', 'R FOR RULES', 7).setOrigin(0.5, 0)
 
         keyFORGET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
+        keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
+
+        this.select = 1
+        this.maxSelect = 3
+        this.selectTile = this.add.sprite(centerX-(8*4), 14*8, 'select').setOrigin(0, 0)
+        this.selectTile.play('flash')
     }
 
     update() {
-        if(cursors.up.isDown) {
+        if(Phaser.Input.Keyboard.JustDown(cursors.down)) {
+            if(this.select < this.maxSelect) {
+                this.select++
+                this.selectTile.setY(this.selectTile.y+8)
+            }
+        } else if(Phaser.Input.Keyboard.JustDown(cursors.up)) {
+            if(this.select > 1) {
+                this.select--
+                this.selectTile.setY(this.selectTile.y-8)
+            }
+        }
+
+        if(this.select == 1 && Phaser.Input.Keyboard.JustDown(keyENTER)) {
             this.tune1.play()
             this.tune2.play()
             this.tune3.play()
@@ -62,9 +82,13 @@ class Title extends Phaser.Scene {
                 solved: this.solved
             })
         }
-        if(Phaser.Input.Keyboard.JustDown(keyFORGET)) {
+        if(this.select == 2 && Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.scene.start('creditsScene')
+        }
+        if(this.select == 3 && Phaser.Input.Keyboard.JustDown(keyENTER)) {
             console.log('%cYOU HAVE FORGOTTEN.', "color: #c088ae")
             localStorage.clear()
+            this.forgetText.setAlpha(1)
         }
     }
 }

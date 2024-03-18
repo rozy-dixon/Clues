@@ -66,6 +66,33 @@ class Menu extends Phaser.Scene {
             this.add.bitmapText(23*8, 23*8, 'ZXSpectrumWhite', 'R', 7).setOrigin(0)
         }
 
+        // glitch
+        // between (3, 3) and (9, 49), (3, 40) and (33, 49), (3, 3) and (33, 9), or (29, 3) and (33, 49)
+        if(localStorage.getItem('forClue') == 'true') {
+            this.glicthTile1 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile2 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile3 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile4 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile5 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile6 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile7 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile8 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile9 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile10 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile11 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile12 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile13 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile14 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile15 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.glicthTile16 = this.add.rectangle(21*8, 31*8, 8, 8, 0x000000, 1).setOrigin(0,0)
+            this.timer = this.time.addEvent({
+                delay: 150,
+                loop: true,
+                callback: this.glitchTick,
+                callbackScope: this
+            })
+        }
+
         // temporary navigation
         key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE)
         key2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO)
@@ -92,7 +119,6 @@ class Menu extends Phaser.Scene {
         // forget scene config
         // https://labs.phaser.io/edit.html?src=src\input\dragging\bring%20dragged%20item%20to%20top.js used as reference
         if(localStorage.getItem('forClue') == 'true') {
-            this.emptyTile = this.physics.add.sprite(25*8, 23*8, 'empty').setOrigin(0)
             this.selectTile = this.add.sprite(17*8, 27*8, 'select').setOrigin(0, 0)
             this.selectTile.setInteractive({ draggable: true })
         }
@@ -195,5 +221,25 @@ class Menu extends Phaser.Scene {
         }
         this.selectTile.setX(posX*8)
         this.selectTile.setY(posY*8)
+    }
+
+    glitchTick() {
+        // between (3, 3) and (9, 49), (3, 40) and (33, 49), (3, 3) and (33, 9), or (29, 3) and (33, 49)
+        this.glicthTile1.setX(Phaser.Math.Between(3, 9)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile2.setX(Phaser.Math.Between(3, 9)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile3.setX(Phaser.Math.Between(3, 9)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile4.setX(Phaser.Math.Between(3, 9)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile5.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(40, 49)*8)
+        this.glicthTile6.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(40, 49)*8)
+        this.glicthTile7.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(40, 49)*8)
+        this.glicthTile8.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(40, 49)*8)
+        this.glicthTile9.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(3, 9)*8)
+        this.glicthTile10.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(3, 9)*8)
+        this.glicthTile11.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(3, 9)*8)
+        this.glicthTile12.setX(Phaser.Math.Between(3, 33)*8).setY(Phaser.Math.Between(3, 9)*8)
+        this.glicthTile13.setX(Phaser.Math.Between(29, 33)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile14.setX(Phaser.Math.Between(29, 33)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile15.setX(Phaser.Math.Between(29, 33)*8).setY(Phaser.Math.Between(3, 49)*8)
+        this.glicthTile16.setX(Phaser.Math.Between(29, 33)*8).setY(Phaser.Math.Between(3, 49)*8)
     }
 }

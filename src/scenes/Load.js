@@ -36,7 +36,6 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('player', './assets/spritesheets/player.png', { frameWidth: 5, frameHeight: 5 })
         this.load.spritesheet('select', './assets/spritesheets/select.png', { frameWidth: 9, frameHeight: 9 })
         this.load.image('letter', './assets/letter.png')
-        this.load.image('empty', './assets/empty.png')
         this.load.image('1PParticle', './assets/particles/1PParticle.png')
         this.load.image('4PParticle', './assets/particles/4PParticle.png')
         this.load.image('9PParticle', './assets/particles/9PParticle.png')

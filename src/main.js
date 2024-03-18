@@ -35,7 +35,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load, Title, Menu, What, IsIt, That, YouAre, Looking, For, MysterySolved, Rules ]
+    scene: [ Load, Title, Credits, Menu, What, IsIt, That, YouAre, Looking, For, MysterySolved, Rules ]
 }
 
 // variable set-up
