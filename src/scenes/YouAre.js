@@ -6,8 +6,8 @@ class YouAre extends Phaser.Scene {
     init() {
         // define variables
         this.ACCELERATION = 400
-        this.PLAYERX = 16*8
-        this.PLAYERY = 18*8
+        this.PLAYERX = 17*8
+        this.PLAYERY = 23*8
         this.CLUE1X = 25*8
         this.CLUE1Y = 19*8
         this.CLUE2X = 18*8
@@ -41,7 +41,9 @@ class YouAre extends Phaser.Scene {
         checkeredLayer.setCollisionByProperty({ collidable: true })
         this.waveLayer = map.createLayer('YouAreWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
-        //map.createLayer('IsItDots', levelTileset, 0, 0)
+        this.triangleLayer = map.createLayer('YouAreTriangles', levelTileset, 0, 0)
+        this.triangleLayer.setCollisionByProperty({ collidable: true })
+        map.createLayer('YouAreDots', levelTileset, 0, 0)
 
         // letter collection graphics (tileX*8, tileY*8, w, h, color)
         this.tileY = this.physics.add.sprite(24*8, 15*8, 'letter').setOrigin(0) // Y
@@ -86,7 +88,24 @@ class YouAre extends Phaser.Scene {
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
         this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
-            // [ ] play death animation
+            // screen shake
+            this.dieParticles()
+            if(this.collectClueOne) { this.bottom.shake(100, 0.02) }
+            else { this.top.shake(100, 0.02) }
+            // send back to the start
+            if (this.level == 'you') {
+                player.x = this.PLAYERX
+                player.y = this.PLAYERY
+            } else {
+                player.x = this.playerx
+                player.y = this.playery
+            }
+            // play respawn sound
+            this.sound.play('respawn')
+            this.respawnParticles()
+            player.setVelocity(0)
+        }, null, this)
+        this.physics.add.collider(this.player, this.triangleLayer, (player, triangleLayer) => {
             // screen shake
             this.dieParticles()
             if(this.collectClueOne) { this.bottom.shake(100, 0.02) }

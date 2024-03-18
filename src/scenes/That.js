@@ -32,7 +32,9 @@ class That extends Phaser.Scene {
         checkeredLayer.setCollisionByProperty({ collidable: true })
         this.waveLayer = map.createLayer('ThatWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
-        //map.createLayer('TutorialDots', levelTileset, 0, 0)
+        this.triangleLayer = map.createLayer('ThatTriangles', levelTileset, 0, 0)
+        this.triangleLayer.setCollisionByProperty({ collidable: true })
+        map.createLayer('ThatDots', levelTileset, 0, 0)
 
         // letter collection graphics (tileX*8, tileY*8, w, h, color)
         this.tileTOne = this.physics.add.sprite(5*8, 16*8, 'letter').setOrigin(0) // T
@@ -64,6 +66,19 @@ class That extends Phaser.Scene {
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
         this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
+            // [ ] play death animation
+            // screen shake
+            this.dieParticles()
+            this.cameras.main.shake(100, 0.02)
+            // send back to the start
+            player.x = this.PLAYERX
+            player.y = this.PLAYERY
+            // play respawn sound
+            this.sound.play('respawn')
+            this.respawnParticles()
+            player.setVelocity(0)
+        }, null, this)
+        this.physics.add.collider(this.player, this.triangleLayer, (player, triangleLayer) => {
             // [ ] play death animation
             // screen shake
             this.dieParticles()

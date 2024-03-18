@@ -32,7 +32,9 @@ class For extends Phaser.Scene {
         checkeredLayer.setCollisionByProperty({ collidable: true })
         this.waveLayer = map.createLayer('ForWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
-        map.createLayer('TutorialDots', levelTileset, 0, 0)
+        this.triangleLayer = map.createLayer('ForTriangles', levelTileset, 0, 0)
+        this.triangleLayer.setCollisionByProperty({ collidable: true })
+        map.createLayer('ForDots', levelTileset, 0, 0)
         this.glitchLayer = map.createLayer('ForGlitch', levelTileset, 0, 0)
         this.glitchLayer.setCollisionByProperty({ collidable: true })
 
@@ -78,6 +80,19 @@ class For extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, w, h, true, true, true, true)
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
+        this.physics.add.collider(this.player, this.triangleLayer, (player, triangleLayer) => {
+            // [ ] play death animation
+            // screen shake
+            this.dieParticles()
+            this.cameras.main.shake(100, 0.02)
+            // send back to the start
+            player.x = this.PLAYERX
+            player.y = this.PLAYERY
+            // play respawn sound
+            this.sound.play('respawn')
+            this.respawnParticles()
+            player.setVelocity(0)
+        }, null, this)
         this.glitchCollide = this.physics.add.collider(this.player, this.glitchLayer, (player, glitchLayer) => {
             // [ ] play death animation
             // screen shake

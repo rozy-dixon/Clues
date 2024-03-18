@@ -41,6 +41,8 @@ class IsIt extends Phaser.Scene {
         checkeredLayer.setCollisionByProperty({ collidable: true })
         this.waveLayer = map.createLayer('IsItWaves', cluesTileset, 0, 0)
         this.waveLayer.setCollisionByProperty({ collidable: true })
+        this.triangleLayer = map.createLayer('IsItTriangles', levelTileset, 0, 0)
+        this.triangleLayer.setCollisionByProperty({ collidable: true })
         map.createLayer('IsItDots', levelTileset, 0, 0)
 
         // letter collection graphics (tileX*8, tileY*8, w, h, color)
@@ -76,6 +78,25 @@ class IsIt extends Phaser.Scene {
         this.physics.add.collider(this.player, frameLayer)
         this.physics.add.collider(this.player, checkeredLayer)
         this.physics.add.collider(this.player, this.waveLayer, (player, waveLayer) => {
+            // [ ] play death animation
+            // screen shake
+            this.dieParticles()
+            if(this.collectClueOne) { this.bottom.shake(100, 0.02) }
+            else { this.top.shake(100, 0.02) }
+            // send back to the start
+            if (this.level == 'is') {
+                player.x = this.PLAYERX
+                player.y = this.PLAYERY
+            } else {
+                player.x = this.playerx
+                player.y = this.playery
+            }
+            // play respawn sound
+            this.sound.play('respawn')
+            this.respawnParticles()
+            player.setVelocity(0)
+        }, null, this)
+        this.physics.add.collider(this.player, this.triangleLayer, (player, triangleLayer) => {
             // [ ] play death animation
             // screen shake
             this.dieParticles()
