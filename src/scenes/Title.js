@@ -63,11 +63,13 @@ class Title extends Phaser.Scene {
             if(this.select < this.maxSelect) {
                 this.select++
                 this.selectTile.setY(this.selectTile.y+8)
+                this.sound.play('cursor')
             }
         } else if(Phaser.Input.Keyboard.JustDown(cursors.up)) {
             if(this.select > 1) {
                 this.select--
                 this.selectTile.setY(this.selectTile.y-8)
+                this.sound.play('cursor')
             }
         }
 
@@ -75,6 +77,7 @@ class Title extends Phaser.Scene {
             this.tune1.play()
             this.tune2.play()
             this.tune3.play()
+            this.sound.play('scene')
             this.scene.start('menuScene', {
                 tune1: this.tune1,
                 tune2: this.tune2,
@@ -83,9 +86,11 @@ class Title extends Phaser.Scene {
             })
         }
         if(this.select == 2 && Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.sound.play('scene')
             this.scene.start('creditsScene')
         }
         if(this.select == 3 && Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.sound.play('scene')
             console.log('%cYOU HAVE FORGOTTEN.', "color: #c088ae")
             localStorage.clear()
             this.forgetText.setAlpha(1)

@@ -1,6 +1,6 @@
 # Design
 Platformer-esque game-like thing, collecting letters across maps, finding the word, level complete.\
-[What] [is it] [you] [are] [looking] [for] [here?]
+[What] [is-it] [that] [you-are] [looking] [for?]
 
 # To-Do and Reference
 living design doc: https://docs.google.com/document/d/1L96RvfJ76lwCKamRVTSOhkrxuKnlo6P4RsxwS-RaKzw/edit#heading=h.e905tppnwuaj\
@@ -33,28 +33,25 @@ related to source: https://lootbndt.itch.io/pnpgolf
 [x] tiny dot tile *03-07-2024*\
 [x] level what *03-09-2024*\
     [x] letter display and collisions\
-[ ] level isit\
-[ ] menu select functionality\
+[x] level isit\
+[x] menu select functionality\
 [x] tune 1 (temp) *02-22-2024*\
 [x] jump sfx (temp) *03-07-2024*\
 [x] respawn sfx (temp) *03-07-2024*\
 [x] selection sfx (temp) *03-07-2024*\
-[ ] jump emitter
 
 ## Playtest Goals (**WEDNESDAY**, March 14, 2024)
 [x] tune 1 (full) *03-09-2024* (json files can be imported into beepbox)\
 [x] tune 2 *03-09-2024* (json files can be imported into beepbox)\
-[ ] rules display\
+[x] rules display\
     - because of the load order, image, not text
-[ ] full death\
-[ ] triangle tile\
-[ ] level that\
-[ ] level you\
-[ ] level are\
-[ ] moving checkered tiles\
-[ ] particle effects\
-[ ] screen shake\
-[ ] fix font
+[x] full death\
+[x] triangle tile *03-17-2024*\
+[x] level that *03-16-2024*\
+[x] level youare *03-16-2024*\
+[x] particle effects\
+[x] screen shake\
+[x] fix font
 
 ### Playtest rubric
 - Basic Scene structure: You have defined Scenes (yes, plural) and some means to switch between them (e.g., via in-game actions, temporary key presses, etc.).  (1 point)
@@ -65,14 +62,16 @@ related to source: https://lootbndt.itch.io/pnpgolf
 - Playtest attendance: Show up for our in-class playtest sessions and have your build ready on your assigned day. (2 points)
 
 ## Final Goals (March 18, 2024)
-[ ] slect sfx\
-[ ] menu sfx\
-[ ] mystery solved\
-[ ] tile edits\
-[ ] player shake\
-[ ] level looking\
-[ ] level for\
-[ ] level here
+[x] select sfx *03-18-2024*\
+[x] menu sfx *03-18-2024*\
+[ ] debug menu *03-18-2024*\
+[ ] rules screen redo *03-18-2024*\
+[ ] pause on complete\
+
+[x] mystery solved *03-17-2024*\
+[x] tile edits *03-17-2024*\
+[x] level looking *03-16-2024*\
+[x] level for *03-16-2024*
 
 ## Stretch
 [ ] randomly generated title screen\
@@ -84,8 +83,6 @@ related to source: https://lootbndt.itch.io/pnpgolf
 ## Office Hours and Discussion
 [x] font licensing\
     - should be fine\
-[ ] why can i not make a stupid player prefab\
-[ ] player going slightly off screen??\
 [ ] do i need both the tmx and the json? exporting json affects the game, tmx does not?
 
 ## Rubric and notes
@@ -94,11 +91,11 @@ related to source: https://lootbndt.itch.io/pnpgolf
 - +3 The project has a well-maintained and updated GitHub page that shows meaningful contributions, commits, and milestones throughout the course of the project's history (including contributions from all team members if you are not working solo).
 ### LOOK & FEEL
 - +5 The game includes (scenes)
-    [ ] a title screen
-    [ ] some means to view credits
-    [ ] some means of completion/conclusion
-    [ ] the ability to restart from within the game
-    [ ] in-game instructions/tutorial that allow the player to learn the game's premise and controls
+    [x] a title screen
+    [x] some means to view credits
+    [x] some means of completion/conclusion
+    [x] the ability to restart from within the game
+    [x] in-game instructions/tutorial that allow the player to learn the game's premise and controls
     (These criteria are judged relative to your specific game, genre, artistic tone, etc.) If your game is purposefully difficult and you're concerned that graders won't be able to evaluate it properly, please provide a "grader mode" or debug menu that will allow us to see everything you've made, along with instructions for how to access that mode.
 - +10 Your game has artistic cohesion, i.e. the art, sound, typography, etc. reflect your target media's aesthetic goals, your game is legible as a recreation of the fictional game, and your assets make sense together.
 ### TECHNICAL EXECUTION
@@ -110,5 +107,12 @@ related to source: https://lootbndt.itch.io/pnpgolf
 
 ## Notes
 tileset name: clues_tilesheet
-current beepbox url:
-https://www.beepbox.co/#9n31s7k0l00e03t1qa7g0fj07r1i0o432T7v1u33f10m6q011d08HYw004000030000h0I4E0T1v1ue0f0q023d08A1F4B3Q217cPe433E361a6287bT1v1ue7f10p7q0331d08A0F5B3Q0140Pea77E361b627638T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0b4h400000000h4g000000014h000000004h400000000p1FFE-4z8TRRMldldBBsDpm00bdWfNSVLh-9LjuzZg00
+BEEPBOX URLS (you can either click the links or upload the json files for each tune if you're curious)
+beepbox url tune1:
+https://www.beepbox.co/https://www.beepbox.co/#9n31sbk6l00e0ft1qa7g0fj07r1i0o432T0v0u00f40ne1532be2c0qgo0162d0aw1h0E11kT7v1u33f10m6q011d08HYw004000030000h0I4E0T5v6u05f50m72b02j21442fcq0t16203d04HVzg00000000000h7E0T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0bgxcm4N8j5xk000000000014h4h4h4h4h4h400000000p21JFE-45j1QRRlOtddldtlukkQRkRRlRQQMRdBBeFpjnjnlnrjjrjpppjnYbGXcGKCOCOGLsFFGFHGHJFFKFIIFSHqqWqWGXaqrqrbag0FLh_E00
+beepbox url tune2:
+https://www.beepbox.co/#9n31sbk6l00e0ft1qa7g0fj07r1i0o432T0v0u00f40ne1532be2c0qks0c2635d0aw1h0E11kT7v1u33f10m6q011d08HYw004000030000h0I4E0T5v6u05f50m72b02j21442fcq0t16203d04HVzg00000000000h7E0T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0bgxcm4N8j5xk000000000014h4h4h4h4h4h400000000p21LFE-45j1QRRlOtddldtlukkQAt5tttt971lmmkWBx7nlnlnqhQmQSmmkR_2WKPaHFIFIGHTaqqGqWGXqqrGrbatGSCKCKGIzEIJFIIF02CZ7-w00
+beepbox url tune3:
+https://www.beepbox.co/#9n31sbk6l00e0ft1qa7g0fj07r1i0o432T0v0u00f40ne1532be2c0qkY52f32ic2q22c02750d3647d0aw1h0E11kT7v1u33f10m6q011d08HYw004000030000h0I4E0T5v4u05f50m72b02j21442fcq0t16203d04HVzg00000000000h7E0T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0bgxcm4N8j5xk000000000014h4h4h4h4h4h400000000p21NFE-45j1Attdp7h9At5ttukkQAt5tttpv3kSm4uFohRllAttF7hqhRAttdvMKGIOGWrGraGZOCCGCKGKSCCWCOODqJ8WWGWGOeyOSCOMz02CZ7-w00
+beepbox url solved:
+https://www.beepbox.co/#9n31sbk6l00e0ft1qa7g0fj07r1i0o432T0v3u00f40ne1532be2c0qgo0162d0aw1h0E11kT7v1u33f10m6q011d08HYw004000030000h0I4E0T5v4u05f50m72b02j21442fcq0t16203d04HVzg00000000000h7E0T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0b00000000000000000000014h4h4h4h4h4h400000000p21JFE-45j1QRRlOtddldtlukkQRkRRlRQQMRdBBeFpjnjnlnrjjrjpppjnYbGXcGKCOCOGLsFFGFHGHJFFKFIIFSHqqWqWGXaqrqrbag0FLh_E00

@@ -29,6 +29,8 @@ class Load extends Phaser.Scene {
         this.load.audio('select', './assets/audio/select.wav')
         this.load.audio('jump', './assets/audio/jump.wav')
         this.load.audio('respawn', './assets/audio/respawn.wav')
+        this.load.audio('cursor', './assets/audio/cursor.wav')
+        this.load.audio('scene', './assets/audio/scene.wav')
         // load font
         this.load.bitmapFont('ZXSpectrum', './assets/fonts/ZXSpectrum.png', './assets/fonts/ZXSpectrum.xml')
         this.load.bitmapFont('ZXSpectrumWhite', './assets/fonts/ZXSpectrumWhite.png', './assets/fonts/ZXSpectrumWhite.xml')

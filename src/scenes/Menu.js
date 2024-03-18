@@ -140,14 +140,17 @@ class Menu extends Phaser.Scene {
             if(this.select < this.maxSelect) {
                 this.select++
                 this.moveSelect()
+                this.sound.play('cursor')
             }
         } else if(Phaser.Input.Keyboard.JustDown(cursors.up) && localStorage.getItem('forClue') == null) {
             if(this.select > 1) {
                 this.select--
                 this.moveSelect()
+                this.sound.play('cursor')
             }
         }
         if(Phaser.Input.Keyboard.JustDown(keyENTER) && localStorage.getItem('forClue') == null) {
+            this.sound.play('scene')
             if(this.select == 1) { this.scene.start('whatScene') }
             if(this.select == 2) { this.scene.start('isItScene') }
             if(this.select == 3) { this.scene.start('thatScene') }
