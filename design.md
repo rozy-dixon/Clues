@@ -64,10 +64,8 @@ related to source: https://lootbndt.itch.io/pnpgolf
 ## Final Goals (March 18, 2024)
 [x] select sfx *03-18-2024*\
 [x] menu sfx *03-18-2024*\
-[ ] debug menu *03-18-2024*\
-[ ] rules screen redo *03-18-2024*\
-[ ] pause on complete\
-
+[x] debug menu *03-18-2024*\
+[x] pause on complete *03-18-2024*\
 [x] mystery solved *03-17-2024*\
 [x] tile edits *03-17-2024*\
 [x] level looking *03-16-2024*\

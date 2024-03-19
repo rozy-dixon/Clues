@@ -171,7 +171,9 @@ class That extends Phaser.Scene {
             } else {
                 console.log('%cLevel That: already completed', "color: #c088ae")
             }
-            this.scene.start('menuScene')
+            this.time.delayedCall(500, () => {
+                this.scene.start('menuScene')
+            })
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyEXIT)) { this.scene.start('menuScene') }

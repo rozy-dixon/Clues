@@ -200,7 +200,9 @@ class Looking extends Phaser.Scene {
             } else {
                 console.log('%cLevel Looking: already completed', "color: #c088ae")
             }
-            this.scene.start('menuScene')
+            this.time.delayedCall(500, () => {
+                this.scene.start('menuScene')
+            })
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyEXIT)) { this.scene.start('menuScene') }
