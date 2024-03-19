@@ -8,7 +8,10 @@
 // - cameras
 // - particle effects
 // creative tilt:
-// 
+// taking a peek at each level file will show that there are slight differences in gravity in each one.
+// I hoped that those, the shorter delays in returning to menu, the music changes, and "glitches" would
+// add up to a level of discomfort that would make the menu change after finishing the last level still
+// be surprising while not being completely unexpected.
 
 // making it easy for myself
 'use strict'
