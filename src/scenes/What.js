@@ -171,7 +171,7 @@ class What extends Phaser.Scene {
             } else {
                 console.log('%cLevel What: already completed', "color: #c088ae")
             }
-            this.time.delayedCall(500, () => {
+            this.time.delayedCall(200, () => {
                 this.scene.start('menuScene')
             })
         }

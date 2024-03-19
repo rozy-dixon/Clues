@@ -200,7 +200,7 @@ class Looking extends Phaser.Scene {
             } else {
                 console.log('%cLevel Looking: already completed', "color: #c088ae")
             }
-            this.time.delayedCall(500, () => {
+            this.time.delayedCall(100, () => {
                 this.scene.start('menuScene')
             })
         }
